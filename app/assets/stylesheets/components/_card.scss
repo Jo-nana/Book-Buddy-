@@ -9,12 +9,30 @@
   border-radius: 4px;
   box-shadow: $dark-green 4px 4px 0 0, $dark-green 4px 4px 0 1px;
   touch-action: manipulation;
+  cursor: pointer;
+  transition: 100ms;
 
   &:hover{
-  //   box-shadow: 4px 4px 8px -3px #000000;
-  //   transition: all 0.15s;
-  box-shadow: $dark-green(0, 0, 0, .125) 0 4px 4px inset;
-  outline: 0;
+    // p, h3 {
+    //   color: grey;
+    // }
+    // .card-product img {
+    //   border-radius: 0px;
+    // }
+    // border-radius: 0px;
+    transform: translate(-2px, -2px);
+    box-shadow: $dark-green 4px 4px 0 0, $dark-green 6px 6px 0 1px;
+  }
+
+  &:active {
+    box-shadow: $dark-green(0, 0, 0, .125) 0 4px 4px inset;
+    outline: 0;
+  }
+
+  &:not([disabled]):active {
+    box-shadow: $dark-green 2px 2px 0 0, $dark-green 2px 2px 0 1px;
+    transform: translate(2px, 2px);
+  }
   }
 
   img {
@@ -72,4 +90,3 @@
   .card-details{
     height: 20px;
   }
-}
