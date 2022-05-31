@@ -1,12 +1,55 @@
+.navbar {
+  position: sticky;
+}
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  color: $dark-green;
+  font-family: $button-font;
+  font-weight: 100;
+  font-size: 14px;
+
+}
+.navbar-light .navbar-nav .nav-link {
+  color: $dark-green;
+  &:hover {
+    color: $orange-red !important;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-lewagon .navbar-brand h1 {
+  width: 30px;
+  color: $dark-green !important;
+}
+
+.active-link {
+  color: $orange-red !important;
+}
+
+.avatar {
+  width: 35px;
+  border-radius: 50%;
+}
+
+.dropdown-item{
+    font-size: 12px;
+    font-family: $button-font;
+    background-color: $dark-green;
+    color: $white;
+
+    &:hover{
+      background-color: $white;
+      color: $dark-green;
+    }
+}
+.dropdown-menu {
+  background-color: $dark-green;
+  border: 1px solid $white;
+}
+
+#header-navbar{
+  color: $dark-green;
 }
