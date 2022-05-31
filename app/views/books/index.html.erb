@@ -1,11 +1,27 @@
   <div class="container pt-3">
   <h1>Books</h1>
 
+ <%# Search bar %>
+    <% @tags.each do |tag| %>
+      <%= link_to tag, books_path(tag: tag) %>
+    <% end %>
 
-  <% @books.each do |book| %>
-    <h1><%= link_to book.title, book_path(book) %></h1>
-    <h2><%= book.author %></h2>
-    <p><%= book.description %></p>
-    <p><%= book.tags %></p>
-  <% end %>
+
+  <div data-controller="search-books">
+        <%= form_tag books_path, method: :get, class:"d-flex p-2 w-25 m-auto", data: { search_books_target: 'form' } do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a book",
+            data: { search_books_target: 'input', action: 'keyup->search-books#update' }
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+
+        <%# Displaying the books %>
+
+    <div data-search-books-target="list">
+     <%= render "books/list", books: @books %>
+    </div>
+  </div>
 </div>

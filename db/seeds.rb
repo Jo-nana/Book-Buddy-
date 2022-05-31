@@ -28,4 +28,22 @@ Book.create!(title: "Les Contemplations", author: "Victor Hugo", description: "T
 Book.create!(title: "1984", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
             picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)
 
+Book.create!(title: "Tintin", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
+            picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)
+
+Book.create!(title: "Spiderman n°78", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
+            picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)
+
+Book.create!(title: "Game of thrones", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
+            picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)
+
+Book.create!(title: "Animal Farm", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
+            picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)
+
+Book.create!(title: "Harry Potter and the philosopher's stone", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
+            picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)
+Book.create!(title: "Le Paris des merveilles", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
+            picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)
+
+
 puts "done!"

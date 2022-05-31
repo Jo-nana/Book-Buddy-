@@ -1,0 +1,9 @@
+<% books.each do |book| %>
+  <h1><%= link_to book.title, book_path(book) %></h1>
+  <h2><%= book.author %></h2>
+  <%= image_tag(book.picture, size: "200x300")%>
+  <p><%= book.description %></p>
+  <% book.tags.each do |tag| %>
+    <p><%= tag %></p>
+  <% end %>
+<% end %>
