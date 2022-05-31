@@ -6,26 +6,22 @@
       <%= link_to tag, books_path(tag: tag) %>
     <% end %>
 
-    <%= form_tag books_path, method: :get, class:"d-flex p-2 w-25 m-auto" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a book"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
 
+  <div data-controller="search-books">
+        <%= form_tag books_path, method: :get, class:"d-flex p-2 w-25 m-auto", data: { search_books_target: 'form' } do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a book",
+            data: { search_books_target: 'input', action: 'keyup->search-books#update' }
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
 
- <%# Displaying the books %>
+        <%# Displaying the books %>
 
-  <% @books.each do |book| %>
-    <h1><%= link_to book.title, book_path(book) %></h1>
-    <h2><%= book.author %></h2>
-    <%= image_tag(book.picture, size: "200x300")%>
-    <p><%= book.description %></p>
-    <% book.tags.each do |tag| %>
-    <p><%= tag %></p>
-    <% end %>
-
-  <% end %>
+    <div data-search-books-target="list">
+     <%= render "books/list", books: @books %>
+    </div>
+  </div>
 </div>
