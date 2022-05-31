@@ -13,13 +13,6 @@
   transition: 100ms;
 
   &:hover{
-    // p, h3 {
-    //   color: grey;
-    // }
-    // .card-product img {
-    //   border-radius: 0px;
-    // }
-    // border-radius: 0px;
     transform: translate(-2px, -2px);
     box-shadow: $dark-green 4px 4px 0 0, $dark-green 6px 6px 0 1px;
   }
