@@ -11,3 +11,28 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+h1 {
+  font-family: 'Abril Fatface', 'cursive';
+}
+
+h2 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+}
+
+h3 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+}
+
+p {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+}
+
+a {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  color: black;
+}
