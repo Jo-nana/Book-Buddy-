@@ -33,12 +33,25 @@
   opacity: 0.5;
 }
 
+.bg-container-show {
+  border: 1px solid $dark-green;
+}
 .container-show {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   align-items: center;
+  gap: 1.5rem;
   width: 100%;
   margin: auto;
   padding: 0.5rem 0rem;
+}
+
+.header-container-show {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 3rem;
 }

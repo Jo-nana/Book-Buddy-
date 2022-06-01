@@ -4,20 +4,25 @@
       <i data-feather="arrow-left"></i>
     <% end %>
   </div>
-  <div>
-    <h1><%= @book.title %></h1>
-    <h2><%= @book.author %></h2>
-    <p>Owner: <%= @book.user.username %></p>
+  <div class="bg-container-show">
+    <div class="header-container-show">
+      <h1><%= @book.title %></h1>
+      <p>Owner: <%= @book.user.username %></p>
+    </div>
+    <div class="container-show">
+      <div>
+        <h2><%= @book.author %></h2>
+        <h4><%= @book.title %></h4>
+        <p><%= @book.description %></p>
+      </div>
+      <%= image_tag(@book.picture) %>
+      <div>
+        <p>Chats</p>
+        <p>Map</p>
+      </div>
+    </div>
   </div>
-  <div class="container-show">
-    <div>
-      <h4><%= @book.title %></h4>
-      <p><%= @book.description %></p>
-    </div>
-    <%= image_tag(@book.picture) %>
-    <div>
-      <p>Chats</p>
-      <p>Map</p>
-    </div>
+  <div>
+    <h2>You might also like</h2>
   </div>
 </div>
