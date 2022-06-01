@@ -36,7 +36,10 @@
                 <p><%= b.year %></p>
               </div>
               <div class="card-price-km">
-                <h3><%= b.tags %></h3>
+                <h3><% b.tags.each do |tag| %>
+                      <%= tag %>
+                    <% end %>
+                </h3>
                 <h3>1.3 km</h3>
               </div>
             </div>
