@@ -27,15 +27,19 @@
         <%= image_tag(@book.picture) %>
       </div>
       <div class="show-column-3">
+        <div>
         <h2>Bookclubs</h2>
           <% @book.chatroom.last(3).each do |chatroom| %>
           <%= @book.title %> : <%= chatroom.name %>
           <% end %> <br>
-        <%= link_to "More Bookclubs", chatrooms_path %>
-       <div style="width: 30%; height: 150px;"
-          data-controller="mapbox"
-          data-mapbox-markers-value="<%= @markers.to_json %>"
-          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          <%= link_to "More Bookclubs", chatrooms_path, { id: 'txt-bookc' } %>
+        </div>
+        <div class="mapbox">
+          <div style="width: 100%; height: 150px;"
+              data-controller="mapbox"
+              data-mapbox-markers-value="<%= @markers.to_json %>"
+              data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
       </div>
     </div>
