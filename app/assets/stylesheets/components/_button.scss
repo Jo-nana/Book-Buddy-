@@ -205,3 +205,10 @@
     padding: 12px 50px;
   }
 }
+
+.button-show {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  bottom: 3rem;
+}

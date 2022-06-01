@@ -34,17 +34,26 @@
 }
 
 .bg-container-show {
-  border: 1px solid $dark-green;
+  // border: 1px solid $dark-green;
+  margin: 1rem 0;
 }
 .container-show {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
-  align-items: center;
+  // align-items: center;
   gap: 1.5rem;
   width: 100%;
   margin: auto;
   padding: 0.5rem 0rem;
+}
+
+.container-show-img {
+  object-fit: cover;
+  margin: 0 auto;
+  // img {
+  //   width: 100%;
+  // }
 }
 
 .header-container-show {
