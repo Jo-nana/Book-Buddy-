@@ -16,4 +16,15 @@
 
 <%= link_to "More Bookclubs", chatrooms_path %>
 
+<div style="width: 30%; height: 200px;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
 <h1>You may also like</h1>
+<ul>
+  <% @books_tag.first(3).each do |book| %>
+  <li><%= book.title %></li>
+  <% end %>
+</ul>

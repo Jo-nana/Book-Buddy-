@@ -12,9 +12,9 @@ Chatroom.destroy_all
 
 puts "Creating users..."
 freddy = User.create!(first_name: 'Frederik', last_name: 'Feldmeier', email:'f.feldmeier98@googlemail.com',
-                      password: '123456', username: 'elfeldos', tags: ["S-F", "Fantasy", "Adventure"])
+                      password: '123456', username: 'elfeldos', tags: ["S-F", "Fantasy", "Adventure"], address: "Amsterdam")
 johanna = User.create!(first_name: 'Johanna', last_name: 'Florange', email:'johanna@gmail.com',
-                       password: '1234567', username: 'jo-nana', tags: ["Horror", "Fantasy", "Poetry"])
+                       password: '1234567', username: 'jo-nana', tags: ["Horror", "Fantasy", "Poetry"], address: "110 rue Petit, Paris")
 
 puts "Creating books..."
 
