@@ -12,6 +12,9 @@
 @import "components/index";
 @import "pages/index";
 
+// mapbox
+@import "mapbox-gl/dist/mapbox-gl";
+
 h1 {
   font-family: 'Abril Fatface', 'cursive';
 }

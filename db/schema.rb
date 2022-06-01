@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_31_101051) do
+ActiveRecord::Schema.define(version: 2022_06_01_104720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2022_05_31_101051) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "book_id"
+    t.index ["book_id"], name: "index_chatrooms_on_book_id"
     t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
@@ -77,6 +79,9 @@ ActiveRecord::Schema.define(version: 2022_05_31_101051) do
     t.string "last_name"
     t.string "username"
     t.string "tags"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -84,6 +89,7 @@ ActiveRecord::Schema.define(version: 2022_05_31_101051) do
   add_foreign_key "bookings", "books"
   add_foreign_key "bookings", "users"
   add_foreign_key "books", "users"
+  add_foreign_key "chatrooms", "books"
   add_foreign_key "chatrooms", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"

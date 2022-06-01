@@ -1,0 +1,7 @@
+<h1>All the bookclubs</h1>
+
+<ul>
+  <% @chatrooms.each do |chatroom| %>
+  <li><%= chatroom.book.title%> : <%= chatroom.name %></li>
+  <% end %>
+</ul>
