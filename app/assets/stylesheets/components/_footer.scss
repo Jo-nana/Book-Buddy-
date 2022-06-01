@@ -1,4 +1,5 @@
 .footer {
+  bottom:0;
   background: $dark-green;
   display: flex;
   align-items: center;
@@ -9,6 +10,7 @@
   // position: absolute;
   // bottom: 0;
   width: 100%;
+  margin-top: 3rem;
 }
 .footer-links {
   display: flex;

@@ -1,30 +1,44 @@
- <div class="container pt-3">
-  <h1><%= @book.title %></h1>
-  <h2><%= @book.author %></h2>
-  <h4><%= @book.title %></h4>
-<%= image_tag(@book.picture) %>
-<p><%= @book.description %></p>
-<p>Owner: <%= @book.user.username %></p>
+<div class="container pt-3">
+  <div class="arrow-left-show">
+    <%= link_to books_path do %>
+      <i data-feather="arrow-left"></i>
+    <% end %>
+  </div>
+  <div class="bg-container-show">
+    <div class="header-container-show">
+      <h1><%= @book.title %></h1>
+      <p>Owner: <%= @book.user.username %></p>
+    </div>
+    <div class="container-show">
+      <div>
+        <h2><%= @book.author %></h2>
+        <h4><%= @book.title %></h4>
+        <p><%= @book.description %></p>
+      </div>
+      <%= image_tag(@book.picture) %>
+      <div>
+        <ul>
+        <h1>Bookclubs</h1>
+          <% @book.chatroom.last(3).each do |chatroom| %>
 
-<h1>Bookclubs</h1>
-<ul>
-  <% @book.chatroom.last(3).each do |chatroom| %>
-
-    <li><%= @book.title %> : <%= chatroom.name %></li>
-  <% end %>
-</ul>
-
-<%= link_to "More Bookclubs", chatrooms_path %>
-
-<div style="width: 30%; height: 200px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          <li><%= @book.title %> : <%= chatroom.name %></li>
+          <% end %>
+        </ul>
+        <%= link_to "More Bookclubs", chatrooms_path %>
+       <div style="width: 30%; height: 200px;"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h1>You may also like</h1>
+    <ul>
+      <% @books_tag.first(3).each do |book| %>
+      <li><%= book.title %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
-
-<h1>You may also like</h1>
-<ul>
-  <% @books_tag.first(3).each do |book| %>
-  <li><%= book.title %></li>
-  <% end %>
-</ul>
