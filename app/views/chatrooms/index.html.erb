@@ -2,6 +2,6 @@
 
 <ul>
   <% @chatrooms.each do |chatroom| %>
-  <li><%= chatroom.book.title%> : <%= chatroom.name %></li>
+  <li><%= chatroom.book.title%> : <%= chatroom.name %> | <%= link_to "Join", chatroom_path(chatroom)  %></li>
   <% end %>
 </ul>
