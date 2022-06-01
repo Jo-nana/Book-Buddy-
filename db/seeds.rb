@@ -8,6 +8,7 @@
 puts "Destroy all.."
 User.destroy_all
 Book.destroy_all
+Chatroom.destroy_all
 
 puts "Creating users..."
 freddy = User.create!(first_name: 'Frederik', last_name: 'Feldmeier', email:'f.feldmeier98@googlemail.com',
@@ -44,6 +45,16 @@ Book.create!(title: "Harry Potter and the philosopher's stone", author: "George 
             picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)
 Book.create!(title: "Le Paris des merveilles", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
             picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)
+
+puts "Creating chatroom (bookclubs)..."
+
+Chatroom.create!(name: "The lord of the Rings", user: johanna)
+Chatroom.create!(name: "The lord of the Rings: The fellowship of the ring", user: freddy)
+Chatroom.create!(name: "The lord of the Rings: why Sam is the best", user: johanna)
+Chatroom.create!(name: "Salem's lot: scary book ever!", user: freddy)
+Chatroom.create!(name: "1984: or 2022?", user: johanna)
+Chatroom.create!(name: "Les contemplations: griefs in poetry (debat)", user: freddy)
+Chatroom.create!(name: "Les contemplations: SHARE YOUR FAVORITE POEM", user: johanna)
 
 
 puts "done!"
