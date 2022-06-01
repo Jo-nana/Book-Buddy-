@@ -13,9 +13,9 @@
             params[:query],
             class: "form-control",
             placeholder: "Find a book",
-            data: { search_books_target: 'input', action: 'keyup->search-books#update' }
+            data: { search_books_target: 'input', action: 'keyup->search-books#update', class: 'style-search-input' }
           %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "style-search-button" %>
         <% end %>
 
         <%# Displaying the books %>
