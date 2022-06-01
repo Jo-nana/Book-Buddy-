@@ -8,9 +8,12 @@
 
 <h1>Bookclubs</h1>
 <ul>
-  <% @chatrooms.last(3).each do |chatroom| %>
-    <li><%= chatroom.name %></li>
+  <% @book.chatroom.last(3).each do |chatroom| %>
+
+    <li><%= @book.title %> : <%= chatroom.name %></li>
   <% end %>
 </ul>
+
+<%= link_to "More Bookclubs", chatrooms_path %>
 
 <h1>You may also like</h1>
