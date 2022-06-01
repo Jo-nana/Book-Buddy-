@@ -1,12 +1,13 @@
 .navbar {
   position: sticky;
+  height: 70px;
 }
 .navbar-lewagon {
   justify-content: space-between;
   color: $dark-green;
   font-family: $button-font;
   font-weight: 100;
-  font-size: 14px;
+  font-size: 20px;
 
 }
 .navbar-light .navbar-nav .nav-link {
@@ -52,4 +53,5 @@
 
 #header-navbar{
   color: $dark-green;
+  font-size: 30px;
 }
