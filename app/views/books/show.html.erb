@@ -5,3 +5,12 @@
 <%= image_tag(@book.picture) %>
 <p><%= @book.description %></p>
 <p>Owner: <%= @book.user.username %></p>
+
+<h1>Bookclubs</h1>
+<ul>
+  <% @chatrooms.last(3).each do |chatroom| %>
+    <li><%= chatroom.name %></li>
+  <% end %>
+</ul>
+
+<h1>You may also like</h1>

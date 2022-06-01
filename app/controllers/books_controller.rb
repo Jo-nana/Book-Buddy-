@@ -21,6 +21,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @chatrooms = Chatroom.where("name ILIKE ?", "%#{@book.title}%")
   end
 
   def new
