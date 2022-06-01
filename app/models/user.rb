@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :bookings, dependent: :destroy
 
-  validates :first_name, :last_name, :tags, presence: true
+  validates :first_name, :last_name, :tags, :address, presence: true
   validates :username, presence: true, uniqueness: true
 
   geocoded_by :address
