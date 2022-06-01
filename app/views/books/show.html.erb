@@ -10,22 +10,29 @@
       <p>Owner: <%= @book.user.username %></p>
     </div>
     <div class="container-show">
-      <div>
-        <h2><%= @book.author %></h2>
-        <h4><%= @book.title %></h4>
-        <p><%= @book.description %></p>
+      <div class="show-column-1">
+        <div class="author-show">
+          <h2><%= @book.author %></h2>
+        </div>
+        <div class="book-show-desc">
+          <p><%= @book.description %></p>
+            <div class="button-show">
+              <button class="button-secondary" style="">
+                <a href="">Borrow book</a>
+              </button>
+            </div>
+        </div>
       </div>
-      <%= image_tag(@book.picture) %>
-      <div>
-        <ul>
-        <h1>Bookclubs</h1>
+      <div class="container-show-img show-column-2">
+        <%= image_tag(@book.picture) %>
+      </div>
+      <div class="show-column-3">
+        <h2>Bookclubs</h2>
           <% @book.chatroom.last(3).each do |chatroom| %>
-
-          <li><%= @book.title %> : <%= chatroom.name %></li>
-          <% end %>
-        </ul>
+          <%= @book.title %> : <%= chatroom.name %>
+          <% end %> <br>
         <%= link_to "More Bookclubs", chatrooms_path %>
-       <div style="width: 30%; height: 200px;"
+       <div style="width: 30%; height: 150px;"
           data-controller="mapbox"
           data-mapbox-markers-value="<%= @markers.to_json %>"
           data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -33,6 +40,7 @@
       </div>
     </div>
   </div>
+  <div class="divider"></div>
   <div>
     <h1>You may also like</h1>
     <ul>
