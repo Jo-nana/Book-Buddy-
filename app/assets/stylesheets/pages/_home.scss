@@ -2,6 +2,11 @@
 .home-page{
   min-height: 100vh;
   background-color: $dark-green !important;
+  h2{
+    font-family: $button-font;
+    font-weight: 200 !important;
+    color: $white;
+  }
 }
 
 #landing-image {
@@ -10,12 +15,6 @@
   object-fit: cover;
   position: relative;
   padding: 4px;
-}
-
-h2{
-  font-family: $button-font;
-  font-weight: 200 !important;
-  color: $white;
 }
 
 #main-title {
