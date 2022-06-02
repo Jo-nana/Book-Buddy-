@@ -21,3 +21,8 @@ scroll.addEventListener("click",(event) => {
  console.log("xwxwx")
  window.scrollTo(0, document.body.scrollHeight);
 })
+
+import { init_showButton } from '../plugins/init_showButton';
+document.addEventListener('turbolinks:load', () => {
+  init_showButton();
+});

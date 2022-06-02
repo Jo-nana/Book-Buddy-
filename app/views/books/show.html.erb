@@ -23,23 +23,34 @@
             </div>
         </div>
       </div>
-      <div class="container-show-img show-column-2" style="background-image: url('<%= cl_image_path @book.photo.key, crop: :fill %>')">
+      <div class="container-show-img show-column-2">
+        <%= cl_image_tag @book.photo.key, height: 528, crop: "fill" %>
+      <%# https://res.cloudinary.com/djsobhceg/image/upload/e_improve,w_300,h_600,c_thumb,g_auto/v1653483075/ta6cb6z4z6qi1diche04.jpg %>
       </div>
       <div class="show-column-3">
         <div>
         <h2>Bookclubs</h2>
           <div class="bookclub-show">
             <% @book.chatroom.last(3).each do |chatroom| %>
-            <div>
-              <%= @book.title %> : <%= chatroom.name %>
+            <div class="bookclub-show-link">
+              <%= link_to chatroom_path(chatroom), id: "chatroomTitle-#{chatroom.id}" do %>
+                <%= @book.title %> : <%= chatroom.name %>
+              <% end %>
+              <%= link_to "Join", chatroom_path(chatroom), id: "chatJoinButton-#{chatroom.id}", class: "d-none"%>
             </div>
             <% end %>
           </div>
-          <%= link_to "More Bookclubs", chatrooms_path, id: 'txt-bookc' %>
+          <div class="txt-bookc">
+            <%= link_to "More Bookclubs", chatrooms_path %>
+            <%= link_to chatrooms_path do %>
+              <i data-feather="arrow-right"></i>
+            <% end %>
+          </div>
         </div>
         <div class="mapbox">
-          <div style="width: 100%; height: 150px;"
+          <div style="width: 100%; height: 200px;"
               data-controller="mapbox"
+              data-mapbox-zoom-value="0"
               data-mapbox-markers-value="<%= @markers.to_json %>"
               data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
