@@ -14,3 +14,8 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+import { init_showButton } from '../plugins/init_showButton';
+document.addEventListener('turbolinks:load', () => {
+  init_showButton();
+});
