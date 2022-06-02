@@ -7,7 +7,7 @@
   border-radius: 4px;
   box-shadow: $white 4px 4px 0 0, $orange-red 4px 4px 0 1px;
   box-sizing: border-box;
-  color: $white;
+  color: $white !important;
   cursor: pointer;
   display: inline-block;
   font-family: $button-font;
@@ -49,6 +49,59 @@
     padding: 12px 50px;
   }
 }
+
+// Primary button red small version
+.button-primary-small-red {
+  appearance: button;
+  background-color: $orange-red;
+  background-image: none;
+  border: 1px solid  $orange-red;
+  border-radius: 4px;
+  box-shadow: $white 4px 4px 0 0, $orange-red 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: $white !important;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $button-font;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 8px 17px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-primary-small-red:focus {
+  text-decoration: none;
+}
+
+.button-primary-small-red:hover {
+  text-decoration: none;
+}
+
+.button-primary-small-red:active {
+  box-shadow: $orange-red(0, 0, 0, .125) 0 4px 4px inset;
+  outline: 0;
+}
+
+.button-primary-small-red:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, $orange-red 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-primary-small-red {
+    padding: 8px 17px;
+  }
+}
+
 
 // Primary button reen
 .button-primary-green {
@@ -111,7 +164,7 @@
   border-radius: 4px;
   box-shadow: $orange-red 4px 4px 0 0, $orange-red 4px 4px 0 1px;
   box-sizing: border-box;
-  color: $orange-red;
+  color: $orange-red !important;
   cursor: pointer;
   display: inline-block;
   font-family: $button-font;
@@ -151,6 +204,58 @@
 @media (min-width: 768px) {
   .button-secondary {
     padding: 12px 50px;
+  }
+}
+
+// Secondary button orange-red small version
+.button-small-secondary {
+  appearance: button;
+  background-color: $white;
+  background-image: none;
+  border: 1px solid  $orange-red;
+  border-radius: 4px;
+  box-shadow: $orange-red 4px 4px 0 0, $orange-red 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: $orange-red !important;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $button-font;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 8px 17px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-small-secondary:focus {
+  text-decoration: none;
+}
+
+.button-small-secondary:hover {
+  text-decoration: none;
+}
+
+.button-small-secondary:active {
+  box-shadow: $orange-red(0, 0, 0, .125) 0 4px 4px inset;
+  outline: 0;
+}
+
+.button-small-secondary:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, $orange-red 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-small-secondary {
+    padding: 8px 17px;
   }
 }
 
