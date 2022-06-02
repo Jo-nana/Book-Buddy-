@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :user
   has_many :chatroom, dependent: :destroy
+  has_one_attached :photo
 
   validates :title, :author, :tags, :picture, presence: true
   validates :year, presence: true, numericality: { only_integer: true }

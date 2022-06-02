@@ -23,8 +23,7 @@
             </div>
         </div>
       </div>
-      <div class="container-show-img show-column-2">
-        <%= image_tag(@book.picture) %>
+      <div class="container-show-img show-column-2" style="background-image: url('<%= cl_image_path @book.photo.key, crop: :fill %>')">
       </div>
       <div class="show-column-3">
         <div>
