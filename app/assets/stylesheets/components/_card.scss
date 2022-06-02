@@ -196,7 +196,16 @@ h4{
   }
 
   .bookclub-show-link {
-    font-family: $button-font;
     padding-top: 0.5rem;
     display: flex;
+    a {
+      font-weight: 200 !important;
+    }
+    &:hover {
+      a {
+        transition-duration: 300ms;
+        text-decoration: none !important;
+        color: $orange-red;
+      }
+    }
   }

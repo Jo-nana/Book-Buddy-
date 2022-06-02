@@ -36,7 +36,7 @@
               <%= link_to chatroom_path(chatroom), id: "chatroomTitle-#{chatroom.id}" do %>
                 <%= @book.title %> : <%= chatroom.name %>
               <% end %>
-              <%= link_to "| Join", chatroom_path(chatroom), id: "chatJoinButton-#{chatroom.id}", class: "d-none"%>
+              <%= link_to "Join", chatroom_path(chatroom), id: "chatJoinButton-#{chatroom.id}", class: "d-none"%>
             </div>
             <% end %>
           </div>
