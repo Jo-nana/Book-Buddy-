@@ -66,5 +66,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #pg search
 gem 'pg_search', '~> 2.3.0'
 
-#map
+#map & geocoder
 gem "geocoder"
+
+#cloudinary
+gem 'cloudinary', '~> 1.16.0'

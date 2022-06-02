@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require "open-uri"
+
 puts "Destroy all.."
 User.destroy_all
 Book.destroy_all
@@ -20,7 +23,7 @@ puts "Creating books..."
 
 lotr = Book.create!(title: "The Lord of the Rings", author: "J.R.R Tolkien", description: "'The Lord of the Rings' is a modern
             fantasy tale about overcoming the dark power brought on by a magical ring.", year: 2016, tags: ["Adventure", "Fantasy"],
-            picture: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1566425108l/33.jpg", availability: true, user: johanna)
+            picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: johanna)
 salem = Book.create!(title: "Salem's Lot", author: "Stephen King", description: "Set in the small fictional town of Jerusalem’s Lot, Maine, the story follows a young author named Benjamin Mears.
              He has returned to the town, where he spent a number of years growing up, in order to face some old childhood fears and continue working on a new novel inspired by the source of those fears, the foreboding and abandoned old Marsten House, which looms over the town on a hill.", year: 2014, tags: ["Horror", "Thriller"],
             picture: "https://images-na.ssl-images-amazon.com/images/I/81zqDem9OvL.jpg", availability: true, user: freddy)
@@ -57,6 +60,11 @@ Chatroom.create!(name: "griefs in poetry (debat)", user: freddy, book: contempla
 Chatroom.create!(name: "SHARE YOUR FAVORITE POEM", user: johanna, book: contemplation)
 Chatroom.create!(name: "test", user: johanna, book: contemplation)
 Chatroom.create!(name: "milou 🐶", user: johanna, book: tintin)
+
+Book.all.each do |book|
+  file = URI.open(book.picture)
+  book.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+end
 
 
 puts "done!"
