@@ -26,10 +26,6 @@
   color: $dark-green !important;
 }
 
-.active-link {
-  color: $orange-red !important;
-}
-
 .avatar {
   width: 35px;
   border-radius: 50%;
@@ -54,4 +50,12 @@
 #header-navbar{
   color: $dark-green;
   font-size: 30px;
+}
+
+.navbar-toggle {
+  display: block;
+}
+
+.navbar-gone {
+  display: none;
 }

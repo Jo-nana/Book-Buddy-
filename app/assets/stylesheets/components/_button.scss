@@ -68,7 +68,7 @@
   line-height: 20px;
   margin: 0 5px 10px 0;
   overflow: visible;
-  padding: 8px 17px;
+  padding: 10px 30px !important;
   text-align: center;
   text-transform: none;
   touch-action: manipulation;
@@ -76,6 +76,11 @@
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  position: relative;
+  bottom: 2.5rem;
+  a {
+    color: $white;
+  }
 }
 
 .button-primary-small-red:focus {
@@ -208,7 +213,7 @@
 }
 
 // Secondary button orange-red small version
-.button-small-secondary {
+.button-small-secondary-red {
   appearance: button;
   background-color: $white;
   background-image: none;
@@ -219,13 +224,12 @@
   color: $orange-red !important;
   cursor: pointer;
   display: inline-block;
-  font-family: $button-font;
   font-size: 14px;
   font-weight: 300;
   line-height: 20px;
   margin: 0 5px 10px 0;
   overflow: visible;
-  padding: 8px 17px;
+  padding: 10px 30px !important;
   text-align: center;
   text-transform: none;
   touch-action: manipulation;
@@ -233,28 +237,35 @@
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  position: relative;
+  bottom: 2.5rem;
+  left: 0.4rem;
+  a {
+    color: $orange-red;
+    text-align: center;
+  }
 }
 
-.button-small-secondary:focus {
+.button-small-secondary-red:focus {
   text-decoration: none;
 }
 
-.button-small-secondary:hover {
+.button-small-secondary-red:hover {
   text-decoration: none;
 }
 
-.button-small-secondary:active {
+.button-small-secondary-red:active {
   box-shadow: $orange-red(0, 0, 0, .125) 0 4px 4px inset;
   outline: 0;
 }
 
-.button-small-secondary:not([disabled]):active {
+.button-small-secondary-red:not([disabled]):active {
   box-shadow: #fff 2px 2px 0 0, $orange-red 2px 2px 0 1px;
   transform: translate(2px, 2px);
 }
 
 @media (min-width: 768px) {
-  .button-small-secondary {
+  .button-small-secondary-red {
     padding: 8px 17px;
   }
 }

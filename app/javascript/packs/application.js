@@ -15,12 +15,17 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
-// scroll = document.querySelector(".down-arrow")
-// scroll.addEventListener("click",(event) => {
-//   event.preventDefault()
-//  console.log("xwxwx")
-//  window.scrollTo(0, document.body.scrollHeight);
-// })
+scroll = document.querySelector(".scroll-down")
+
+scroll.addEventListener("click",(event) => {
+  window.scrollTo(0, window.innerHeight);
+  event.preventDefault()
+ if (window.scrollY >= window.innerHeight) {
+  document.querySelector(".navbar").classList.add("navbar-gone")
+} else {
+  document.querySelector(".navbar").classList.remove("navbar-gone")
+}
+})
 
 import { init_showButton } from '../plugins/init_showButton';
 document.addEventListener('turbolinks:load', () => {
