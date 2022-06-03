@@ -16,13 +16,9 @@ import "controllers"
 import "bootstrap"
 
 scroll = document.querySelector(".scroll-down")
-// navbar1 = document.querySelector(".navbar")
-
-
 
 scroll.addEventListener("click",(event) => {
   window.scrollTo(0, window.innerHeight);
-
   event.preventDefault()
  if (window.scrollY >= window.innerHeight) {
   document.querySelector(".navbar").classList.add("navbar-gone")

@@ -224,7 +224,6 @@
   color: $orange-red !important;
   cursor: pointer;
   display: inline-block;
-  font-family: $button-font;
   font-size: 14px;
   font-weight: 300;
   line-height: 20px;
@@ -241,10 +240,9 @@
   position: relative;
   bottom: 2.5rem;
   left: 0.4rem;
-  i {
+  a {
     color: $orange-red;
     text-align: center;
-    font-family: $button-font;
   }
 }
 
