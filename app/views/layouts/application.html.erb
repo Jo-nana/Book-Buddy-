@@ -13,8 +13,8 @@
   </head>
 
   <body>
-    <% if !current_page?(root_path) %>
-     <%= render 'shared/navbar' %>
+    <% if !current_page?(books_path) %>
+     <%= render 'shared/navbar', navbar_class: '' %>
     <% end %>
 
     <%= render 'shared/flashes' %>
