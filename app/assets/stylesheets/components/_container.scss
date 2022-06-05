@@ -5,15 +5,6 @@
   padding: 0 15px;
 }
 
-.results-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 0;
-}
-
 .tags-container {
   display: flex;
   flex-direction: row;
@@ -24,6 +15,10 @@
   align-content: center;
   margin: auto;
   padding: 0.5rem 0rem;
+  a {
+    color: $black;
+    text-decoration: none;
+  }
 }
 
 .tags-bubble {

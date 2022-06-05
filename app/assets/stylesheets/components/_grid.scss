@@ -1,9 +1,4 @@
 // grid-index
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 3rem;
-}
 
 .show-column-1 {
   grid-area: 1 / 1 / 2 / 2;

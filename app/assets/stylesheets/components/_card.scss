@@ -114,6 +114,7 @@ h4{
   touch-action: manipulation;
   cursor: pointer;
   transition: 100ms;
+  margin-top: 2rem;
 
     &:hover{
       transform: translate(-2px, -2px);
@@ -173,39 +174,4 @@ h4{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-  }
-
-  .txt-bookc {
-    margin: 1rem 0;
-    a {
-      color: $black;
-      text-decoration: none !important;
-    }
-
-    &:hover {
-      a {
-        transition-duration: 300ms;
-        text-decoration: none !important;
-        color: $orange-red;
-      }
-    }
-  }
-
-  .bookclub-show {
-    margin: 1rem 0;
-  }
-
-  .bookclub-show-link {
-    padding-top: 0.5rem;
-    display: flex;
-    a {
-      font-weight: 200 !important;
-    }
-    &:hover {
-      a {
-        transition-duration: 300ms;
-        text-decoration: none !important;
-        color: $orange-red;
-      }
-    }
   }

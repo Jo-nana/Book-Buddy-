@@ -1,5 +1,4 @@
 <%# new homepage-code %>
-
 <% if user_signed_in?  %>
   <div class="grid-container">
     <div class="gc-pic">
@@ -82,7 +81,7 @@
   </div>
 
   <%# Displaying the books %>
-  <div class="results-container"></div>
+  <%# <div class="results-container"></div> %>
     <div class="cards">
       <% @books.each do |b| %>
         <%= link_to book_path(b) do %>
@@ -106,5 +105,5 @@
         <% end %>
       <% end %>
     </div>
-  </div>
+  <%# </div> %>
 </div>
