@@ -78,8 +78,9 @@
   white-space: nowrap;
   position: relative;
   bottom: 2.5rem;
-  a {
+  i {
     color: $white;
+    text-decoration: none;
   }
 }
 
@@ -188,12 +189,25 @@
   white-space: nowrap;
 }
 
+a {
+  color: $orange-red;
+  text-decoration: none;
+}
+
 .button-secondary:focus {
   text-decoration: none;
+  a {
+    color: $orange-red;
+    text-decoration: none;
+  }
 }
 
 .button-secondary:hover {
   text-decoration: none;
+  a {
+    color: $orange-red;
+    text-decoration: none;
+  }
 }
 
 .button-secondary:active {
