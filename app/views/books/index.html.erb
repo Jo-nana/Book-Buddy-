@@ -57,54 +57,33 @@
 
 <%= render 'shared/navbar', navbar_class: '' %>
 <div class="container pt-3">
-  <h1>Books</h1>
+  <h1>All books</h1>
   <div style="display: none;" class="remove-landing"><%= @dissapear %></div>
 
  <%# Search bar %>
   <div data-controller="search-books">
-        <%= form_tag books_path, method: :get, class:"d-flex p-2 w-25 m-auto", data: { search_books_target: 'form' } do %>
+        <%= form_tag root_path, method: :get, class:"d-flex p-2 w-25 m-auto", data: { search_books_target: 'form' } do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-input",
             placeholder: "Find a book",
             data: { search_books_target: 'input', action: 'keyup->search-books#update' }
           %>
+          <%= hidden_field_tag :dissapear, "true" %>
           <%= button_tag type: "submit", class: "style-search-button" do %>
             <i data-feather="search"></i>
           <% end %>
         <% end %>
-  </div>
-  <%# Tags %>
-  <div class="tags-container">
-    <% @tags.each do |tag| %>
-        <%= link_to tag, root_path(tag: tag, dissapear: "true"), class: "tags-bubble" %>
-    <% end %>
-  </div>
-
-  <%# Displaying the books %>
-  <%# <div class="results-container"></div> %>
-    <div class="cards">
-      <% @books.each do |b| %>
-        <%= link_to book_path(b) do %>
-          <div class="card-product">
-            <%= cl_image_tag(b.photo.key)%>
-            <div class="card-product-infos">
-              <div>
-                <h2><%= b.title %></h2>
-                <p><%= b.author %></p>
-                <p><%= b.year %></p>
-              </div>
-              <div class="card-price-km">
-                <h3><% b.tags.each do |tag| %>
-                      <%= tag %>
-                    <% end %>
-                </h3>
-                <h3>1.3 km</h3>
-              </div>
-            </div>
-          </div>
-        <% end %>
+    <%# Tags %>
+    <div class="tags-container">
+      <% @tags.each do |tag| %>
+          <%= link_to tag, root_path(tag: tag, dissapear: "true"), class: "tags-bubble" %>
       <% end %>
     </div>
-  <%# </div> %>
+
+  <%# Displaying the books %>
+    <div data-search-books-target="list">
+      <%= render "list" %>
+    </div>
+  </div>
 </div>

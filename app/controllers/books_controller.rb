@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   def index
-
     if params[:dissapear].present?
       @dissapear = params[:dissapear]
     end
