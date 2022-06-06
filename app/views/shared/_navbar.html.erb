@@ -1,6 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= navbar_class %>">
   <div class="container-fluid">
-    <h1 href="/" class="navbar-brand" id="header-navbar">BookBuddy</h1>
+    <%= link_to "BookBuddy", root_path(dissapear: "true"), class: "navbar-brand", id: "header-navbar" %>
+    <%# <h1 href="" class="navbar-brand" id="header-navbar">BookBuddy</h1> %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

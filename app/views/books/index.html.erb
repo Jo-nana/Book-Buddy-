@@ -62,7 +62,7 @@
 
  <%# Search bar %>
   <div data-controller="search-books">
-        <%= form_tag root_path, method: :get, class:"d-flex w-50 m-auto", data: { search_books_target: 'form' } do %>
+        <%= form_tag root_path, method: :get, class:"d-flex m-auto test", data: { search_books_target: 'form' } do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-input",
