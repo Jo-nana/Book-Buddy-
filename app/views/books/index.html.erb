@@ -11,7 +11,7 @@
       <h1>Book Buddy.</h1>
     </div>
     <div class="gc-btn scroll-down">
-      <%= link_to new_user_registration_path, class: "button-primary-small-red" do%>
+      <%= link_to root_path, class: "button-primary-small-red" do%>
         <i>Explore</i>
       <% end %>
     </div>
@@ -57,17 +57,19 @@
 
 <%= render 'shared/navbar', navbar_class: '' %>
 <div class="container pt-3">
-  <h1>Books</h1>
+  <h1>All books</h1>
+  <div style="display: none;" class="remove-landing"><%= @dissapear %></div>
 
  <%# Search bar %>
   <div data-controller="search-books">
-        <%= form_tag books_path, method: :get, class:"d-flex p-2 w-25 m-auto", data: { search_books_target: 'form' } do %>
+        <%= form_tag root_path, method: :get, class:"d-flex m-auto test", data: { search_books_target: 'form' } do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-input",
             placeholder: "Find a book",
             data: { search_books_target: 'input', action: 'keyup->search-books#update' }
           %>
+          <%= hidden_field_tag :dissapear, "true" %>
           <%= button_tag type: "submit", class: "style-search-button" do %>
             <i data-feather="search"></i>
           <% end %>
@@ -101,9 +103,23 @@
                 <h3><%= b.user.latitude %></h3>
               </div>
             </div>
+          <div class="icons-show icon-container" >
+            <%= link_to root_path(dissapear: "true") do %>
+              <i data-feather="rotate-ccw"></i>
+            <% end %>
           </div>
         <% end %>
+    <%# Tags %>
+    <div class="tags-container">
+      <% @tags.each do |tag| %>
+          <%= link_to tag, root_path(tag: tag, dissapear: "true"), class: "tags-bubble" %>
       <% end %>
     </div>
-  <%# </div> %>
+
+  <%# Displaying the books %>
+    <div data-search-books-target="list" style="min-height: 100vh">
+      <%= render "list" %>
+    </div>
+  </div>
 </div>
+<%= render 'shared/footer' %>
