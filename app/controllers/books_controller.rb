@@ -16,7 +16,7 @@ class BooksController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.text { render partial: 'books/list', locals: { books: @books }, formats: [:html] }
+      format.text { render partial: 'books/list', locals: { books: @books, user: current_user }, formats: [:html] }
     end
     @user = current_user
   end

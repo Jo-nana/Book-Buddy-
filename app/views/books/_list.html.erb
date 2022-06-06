@@ -14,7 +14,7 @@
                   <%= tag %>
                 <% end %>
             </h3>
-            <%#= ((Geocoder::Calculations.distance_between([@user.latitude, @user.longitude], [b.user.latitude, b.user.longitude]))*(1.60934)).round%>km
+            <%= ((Geocoder::Calculations.distance_between([user.latitude, user.longitude], [b.user.latitude, b.user.longitude]))*(1.60934)).round%>km
 
           </div>
         </div>
