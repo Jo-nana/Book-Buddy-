@@ -21,9 +21,8 @@ scroll.addEventListener("click",(event) => {
   window.scrollTo(0, window.innerHeight);
   event.preventDefault()
  if (window.scrollY >= window.innerHeight) {
-  document.querySelector(".navbar").classList.add("navbar-gone")
+  document.querySelector(".grid-container").style.display = "none"
 } else {
-  document.querySelector(".navbar").classList.remove("navbar-gone")
 }
 })
 
