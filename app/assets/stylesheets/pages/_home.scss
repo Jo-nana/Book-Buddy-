@@ -61,3 +61,20 @@
   height: 100%;
   width: 100%;
 }
+
+.icon-container {
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding: 10px 10px;
+  background-color: lightgray;
+  border-radius: 4px;
+  opacity: 0.5;
+  transition: 300ms;
+  &:hover {
+    opacity: 1;
+    a {
+      color: $black;
+    }
+  }
+}

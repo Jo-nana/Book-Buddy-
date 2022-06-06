@@ -62,7 +62,7 @@
 
  <%# Search bar %>
   <div data-controller="search-books">
-        <%= form_tag root_path, method: :get, class:"d-flex p-2 w-25 m-auto", data: { search_books_target: 'form' } do %>
+        <%= form_tag root_path, method: :get, class:"d-flex w-50 m-auto", data: { search_books_target: 'form' } do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-input",
@@ -73,6 +73,11 @@
           <%= button_tag type: "submit", class: "style-search-button" do %>
             <i data-feather="search"></i>
           <% end %>
+          <div class="icons-show icon-container" >
+            <%= link_to root_path(dissapear: "true") do %>
+              <i data-feather="rotate-ccw"></i>
+            <% end %>
+          </div>
         <% end %>
     <%# Tags %>
     <div class="tags-container">

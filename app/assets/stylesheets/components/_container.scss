@@ -26,6 +26,12 @@
   background-color: lightgray;
   border-radius: 4px;
   opacity: 0.5;
+  &:hover {
+    opacity: 1;
+    a {
+      color: $black;
+    }
+  }
 }
 
 .bg-container-show {
