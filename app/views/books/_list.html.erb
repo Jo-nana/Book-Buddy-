@@ -1,9 +1,23 @@
-<% books.each do |book| %>
-  <h1><%= link_to book.title, book_path(book) %></h1>
-  <h2><%= book.author %></h2>
-  <%= image_tag(book.picture, size: "200x300")%>
-  <p><%= book.description %></p>
-  <% book.tags.each do |tag| %>
-    <p><%= tag %></p>
+<div class="cards">
+  <% @books.each do |b| %>
+    <%= link_to book_path(b) do %>
+      <div class="card-product">
+        <%= cl_image_tag(b.photo.key)%>
+        <div class="card-product-infos">
+          <div>
+            <h2><%= b.title %></h2>
+            <p><%= b.author %></p>
+            <p><%= b.year %></p>
+          </div>
+          <div class="card-price-km">
+            <h3><% b.tags.each do |tag| %>
+                  <%= tag %>
+                <% end %>
+            </h3>
+            <%= ((Geocoder::Calculations.distance_between([@user.latitude, @user.longitude], [b.user.latitude, b.user.longitude]))*(1.60934)).round%>km
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
