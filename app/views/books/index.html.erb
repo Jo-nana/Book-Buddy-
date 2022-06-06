@@ -16,12 +16,12 @@
       <% end %>
     </div>
     <div class="gc-btn2">
-      <%= link_to new_user_session_path, class: "button-small-secondary-red" do%>
+      <%= link_to dashboard_path, class: "button-small-secondary-red" do%>
         <i>Dashboard</i>
       <% end %>
     </div>
     <div class="gc-welcome">
-      <h1>Welcome back ... insert name</h1>
+      <h1>Welcome back <%= @user.first_name %>!</h1> <%=  %>
     </div>
   </div>
 <% else %>
@@ -73,6 +73,36 @@
           <%= button_tag type: "submit", class: "style-search-button" do %>
             <i data-feather="search"></i>
           <% end %>
+        <% end %>
+  </div>
+  <%# Tags %>
+  <div class="tags-container">
+    <% @tags.each do |tag| %>
+        <%= link_to tag, books_path(tag: tag), class: "tags-bubble" %>
+    <% end %>
+  </div>
+
+  <%# Displaying the books %>
+  <%# <div class="results-container"></div> %>
+    <div class="cards">
+      <% @books.each do |b| %>
+        <%= link_to book_path(b) do %>
+          <div class="card-product">
+            <%= cl_image_tag(b.photo.key)%>
+            <div class="card-product-infos">
+              <div>
+                <h2><%= b.title %></h2>
+                <p><%= b.author %></p>
+                <p><%= b.year %></p>
+              </div>
+              <div class="card-price-km">
+                <h3><% b.tags.each do |tag| %>
+                      <%= tag %>
+                    <% end %>
+                </h3>
+                <h3><%= b.user.latitude %></h3>
+              </div>
+            </div>
           <div class="icons-show icon-container" >
             <%= link_to root_path(dissapear: "true") do %>
               <i data-feather="rotate-ccw"></i>

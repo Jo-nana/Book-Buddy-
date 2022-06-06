@@ -14,12 +14,21 @@
         <div class="author-show">
           <h2><%= @book.author %></h2>
         </div>
+
         <div class="book-show-desc">
           <p><%= @book.description %></p>
             <div class="button-show">
-              <button class="button-secondary" style="">
-                <a href="">Borrow book</a>
-              </button>
+              <% if user_signed_in? %>
+                <button class="button-secondary" style="">
+                  <%= link_to "Borrow Book", new_book_booking_path(@book) %>
+                </button>
+              <% else %>
+                <button class="button-secondary" style="">
+                  <%= link_to "Borrow Book", new_user_session_path, book: @book %>
+
+                </button>
+
+              <% end %>
             </div>
         </div>
       </div>
@@ -31,7 +40,7 @@
         <div>
         <h2>Bookclubs</h2>
           <div class="bookclub-show">
-            <% @book.chatroom.last(3).each do |chatroom| %>
+           <% @book.chatroom.last(3).each do |chatroom| %>
             <div class="bookclub-show-link">
               <%= link_to chatroom_path(chatroom), id: "chatroomTitle-#{chatroom.id}" do %>
                 <%= @book.title %> : <%= chatroom.name %>

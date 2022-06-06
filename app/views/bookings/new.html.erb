@@ -1,0 +1,18 @@
+
+ <div class="container">
+  <%= simple_form_for [@book, @booking] do |b| %>
+      <div class="form-inputs">
+            <%= b.input :start_date,
+                        autofocus: true,
+                        input_html: { class:"style-input" },
+                        label_html: { class: "label-form" } %>
+            <%= b.input :end_date,
+                        autofocus: true,
+                        input_html: { class:"style-input" },
+                        label_html: { class: "label-form" } %>
+            <div class="form-actions">
+              <%= b.button :submit, "Book", class: 'button-form' %>
+            </div>
+      </div>
+    <% end %>
+</div>

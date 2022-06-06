@@ -8,10 +8,15 @@ class User < ApplicationRecord
   has_many :chatrooms, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  # has_many :owner_bookings, through: :books, source: :booking
 
   validates :first_name, :last_name, :tags, :address, presence: true
   validates :username, presence: true, uniqueness: true
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def full_name
+    return "#{self.first_name} #{self.last_name}"
+  end
 end
