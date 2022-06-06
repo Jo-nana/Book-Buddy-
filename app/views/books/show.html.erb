@@ -14,7 +14,7 @@
         <div class="author-show">
           <h2><%= @book.author %></h2>
         </div>
-<%= raise %>
+
         <div class="book-show-desc">
           <p><%= @book.description %></p>
             <div class="button-show">
@@ -40,7 +40,7 @@
         <div>
         <h2>Bookclubs</h2>
           <div class="bookclub-show">
-      P      <% @book.chatroom.last(3).each do |chatroom| %>
+           <% @book.chatroom.last(3).each do |chatroom| %>
             <div class="bookclub-show-link">
               <%= link_to chatroom_path(chatroom), id: "chatroomTitle-#{chatroom.id}" do %>
                 <%= @book.title %> : <%= chatroom.name %>
