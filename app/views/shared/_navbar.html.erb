@@ -1,6 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= navbar_class %>">
   <div class="container-fluid">
-    <h1 href="/" class="navbar-brand" id="header-navbar">BookBuddy</h1>
+    <%= link_to "BookBuddy", root_path(dissapear: "true"), class: "navbar-brand", id: "header-navbar" %>
+    <%# <h1 href="" class="navbar-brand" id="header-navbar">BookBuddy</h1> %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,13 +10,13 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active-link">
-            <%= link_to "Explore", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
+            <%= link_to "Explore", root_path(dissapear: "true"), class: "nav-link #{'active-link' if current_page?(books_path)}" %>
           </li>
           <li class="nav-item active-link">
             <%= link_to "Clubs", chatrooms_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
           </li>
           <li class="nav-item active-link">
-            <%= link_to "Chat", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
+            <%= link_to "Chats", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "user-astronaut-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -26,7 +27,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Explore", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
+            <%= link_to "Explore", root_path(dissapear: "true"), class: "nav-link #{'active-link' if current_page?(books_path)}" %>
           </li>
           <li class="nav-item">
             <%= link_to "How it works", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>

@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
   def index
+    if params[:dissapear].present?
+      @dissapear = params[:dissapear]
+    end
     @books = Book.all
     @tags = ["Horror", "S-F", "Distopia", "Classic", "Adventure", "Fantasy"]
     # search bar
@@ -55,4 +58,34 @@ class BooksController < ApplicationController
 
   def destroy
   end
+
+  # def calculate_distance
+  #   @delta = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude], [book.user.latitude, book.user.longitude])
+  # end
 end
+
+# distance between two points (haversine formula)
+# module Geocoder
+#   module Calculations
+#     extend self
+#       def distance_between(current_user.address, book., options = {})
+#         # convert to coordinate arrays
+#         point1 = extract_coordinates(point1)
+#         point2 = extract_coordinates(point2)
+
+#         # convert degrees to radians
+#         point1 = to_radians(point1)
+#         point2 = to_radians(point2)
+
+#         # compute deltas
+#         dlat = point2[0] - point1[0]
+#         dlon = point2[1] - point1[1]
+
+#         a = (Math.sin(dlat / 2))**2 + Math.cos(point1[0]) *
+#             (Math.sin(dlon / 2))**2 * Math.cos(point2[0])
+#         c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a))
+#         c * earth_radius(options[:units])
+#       end
+#     end
+#   end
+# end
