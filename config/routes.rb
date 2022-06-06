@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
   patch 'books/:book_id/bookings/:id/accept', to: 'bookings#accept', as: :accept
 
-  resources :books do
+  resources :books, except: :index do
     resources :bookings, only: [:new, :create]
   end
 
