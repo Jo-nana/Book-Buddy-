@@ -9,13 +9,13 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active-link">
-            <%= link_to "Explore", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
+            <%= link_to "Explore", root_path(dissapear: "true"), class: "nav-link #{'active-link' if current_page?(books_path)}" %>
           </li>
           <li class="nav-item active-link">
             <%= link_to "Clubs", chatrooms_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
           </li>
           <li class="nav-item active-link">
-            <%= link_to "Chat", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
+            <%= link_to "Chats", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "user-astronaut-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -26,7 +26,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Explore", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
+            <%= link_to "Explore", root_path(dissapear: "true"), class: "nav-link #{'active-link' if current_page?(books_path)}" %>
           </li>
           <li class="nav-item">
             <%= link_to "How it works", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>

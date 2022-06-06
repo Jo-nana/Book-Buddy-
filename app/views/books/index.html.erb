@@ -11,7 +11,7 @@
       <h1>Book Buddy.</h1>
     </div>
     <div class="gc-btn scroll-down">
-      <%= link_to new_user_registration_path, class: "button-primary-small-red" do%>
+      <%= link_to root_path, class: "button-primary-small-red" do%>
         <i>Explore</i>
       <% end %>
     </div>
@@ -58,6 +58,7 @@
 <%= render 'shared/navbar', navbar_class: '' %>
 <div class="container pt-3">
   <h1>Books</h1>
+  <div style="display: none;" class="remove-landing"><%= @dissapear %></div>
 
  <%# Search bar %>
   <div data-controller="search-books">
@@ -76,7 +77,7 @@
   <%# Tags %>
   <div class="tags-container">
     <% @tags.each do |tag| %>
-        <%= link_to tag, books_path(tag: tag), class: "tags-bubble" %>
+        <%= link_to tag, root_path(tag: tag, dissapear: "true"), class: "tags-bubble" %>
     <% end %>
   </div>
 

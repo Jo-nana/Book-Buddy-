@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
   def index
+
+    if params[:dissapear].present?
+      @dissapear = params[:dissapear]
+    end
     @books = Book.all
     @tags = ["Horror", "S-F", "Distopia", "Classic", "Adventure", "Fantasy"]
     # search bar

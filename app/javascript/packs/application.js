@@ -31,3 +31,10 @@ import { init_showButton } from '../plugins/init_showButton';
 document.addEventListener('turbolinks:load', () => {
   init_showButton();
 });
+
+
+document.addEventListener('turbolinks:load', () => {
+  if (document.querySelector(".remove-landing").innerText === "true"){
+    document.querySelector(".grid-container").style.display = "none"
+  }
+})
