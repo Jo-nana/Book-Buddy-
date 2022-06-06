@@ -7,4 +7,10 @@ class PagesController < ApplicationController
 
   def component
   end
+
+  def dashboard
+    @user = current_user
+    @user_full_name = @user.full_name
+    @user.books
+  end
 end

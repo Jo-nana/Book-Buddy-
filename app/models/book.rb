@@ -7,6 +7,11 @@ class Book < ApplicationRecord
   validates :year, presence: true, numericality: { only_integer: true }
   validates :description, length: { maximum: 500, too_long: "%<count> characters is the maximum allowed" }
 
+  def change_availability_to_false
+    # code to change availiability of computer
+    self.update(availability: false)
+  end
+
   # PG SEARCH
   include PgSearch::Model
   pg_search_scope :search_by_title_and_author,

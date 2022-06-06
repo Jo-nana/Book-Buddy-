@@ -15,6 +15,7 @@ class BooksController < ApplicationController
       format.html
       format.text { render partial: 'books/list', locals: { books: @books }, formats: [:html] }
     end
+    @user = current_user
   end
 
   def show

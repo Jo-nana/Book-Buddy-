@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Your dashboard </h1>
+
+
+  <div>
+    <h2> My lybrary</h3>
+    <ul>
+      <% @user.books.each do |book| %>
+        <li><%= book.title %> | <%= book.author %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div>
+    <h2> My profile</h2>
+    <p><%= @user_full_name %></p>
+    <p><%= @user.username %></p>
+    <h3>My tags</h3>
+    <ul>
+      <% @user.tags.each do |tag| %>
+      <li><%= tag %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div>
+    <h2>My booking</h2>
+
+  </div>
+
+</div>

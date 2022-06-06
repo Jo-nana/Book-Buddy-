@@ -16,12 +16,12 @@
       <% end %>
     </div>
     <div class="gc-btn2">
-      <%= link_to new_user_session_path, class: "button-small-secondary-red" do%>
+      <%= link_to dashboard_path, class: "button-small-secondary-red" do%>
         <i>Dashboard</i>
       <% end %>
     </div>
     <div class="gc-welcome">
-      <h1>Welcome back ... insert name</h1>
+      <h1>Welcome back <%= @user.first_name %>!</h1> <%=  %>
     </div>
   </div>
 <% else %>
@@ -99,6 +99,7 @@
                     <% end %>
                 </h3>
                 <h3>1.3 km</h3>
+
               </div>
             </div>
           </div>
