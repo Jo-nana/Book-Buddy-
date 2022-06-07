@@ -16,12 +16,12 @@
       <% end %>
     </div>
     <div class="gc-btn2">
-      <%= link_to new_user_session_path, class: "button-small-secondary-red" do%>
+      <%= link_to dashboard_path, class: "button-small-secondary-red" do%>
         <i>Dashboard</i>
       <% end %>
     </div>
     <div class="gc-welcome">
-      <h1>Welcome back ... insert name</h1>
+      <h1>Welcome back <%= @user.first_name %>!</h1> <%=  %>
     </div>
   </div>
 <% else %>
@@ -87,9 +87,9 @@
     </div>
 
     <%# Displaying the books %>
-    <div data-search-books-target="list" style="min-height: 100vh">
-      <%= render "list" %>
-    </div>
+      <div data-search-books-target="list" style="min-height: 100vh">
+        <%= render "list", user: current_user%>
+      </div>
   </div>
 </div>
 <%= render 'shared/footer' %>

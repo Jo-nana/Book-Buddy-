@@ -10,27 +10,27 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active-link">
-            <%= link_to "Explore", root_path(dissapear: "true"), class: "nav-link #{'active-link' if current_page?(books_path)}" %>
+            <%= link_to "Explore", root_path(dissapear: "true"), class: "nav-link #{'active-link' if current_page?(root_path)}" %>
           </li>
           <li class="nav-item active-link">
-            <%= link_to "Clubs", chatrooms_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
+            <%= link_to "Clubs", chatrooms_path, class: "nav-link #{'active-link' if current_page?(root_path)}" %>
           </li>
           <li class="nav-item active-link">
-            <%= link_to "Chats", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
+            <%= link_to "Chats", root_path, class: "nav-link #{'active-link' if current_page?(root_path)}" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "user-astronaut-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Dashboard", books_path, class: "dropdown-item" %>
+              <%= link_to "Dashboard", root_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Explore", root_path(dissapear: "true"), class: "nav-link #{'active-link' if current_page?(books_path)}" %>
+            <%= link_to "Explore", root_path(dissapear: "true"), class: "nav-link #{'active-link' if current_page?(root_path)}" %>
           </li>
           <li class="nav-item">
-            <%= link_to "How it works", books_path, class: "nav-link #{'active-link' if current_page?(books_path)}" %>
+            <%= link_to "How it works", root_path, class: "nav-link #{'active-link' if current_page?(root_path)}" %>
           </li>
           <li class="nav-item">
             <%= link_to "Log in", new_user_session_path, class: "nav-link #{'active-link' if current_page?(new_user_session_path)}" %>

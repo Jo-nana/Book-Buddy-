@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: 'books#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'component', to: 'pages#component'
+  get 'dashboard', to: 'pages#dashboard'
+  patch 'books/:book_id/bookings/:id/accept', to: 'bookings#accept', as: :accept
 
-  resources :books do
+  resources :books, except: :index do
     resources :bookings, only: [:new, :create]
   end
 
