@@ -37,6 +37,7 @@
   padding: 4px 1rem 4px 1rem;
   width: 50%;
   align-self: flex-end;
+
 }
 
 .msg-yours {
@@ -56,7 +57,7 @@
   width: 100%;
   textarea {
     background-color: $white !important;
-    font-family: $button-font;
+    font-family: $txt-font;
     font-size: 14px;
     color: $black !important;
     border: 1px solid $dark-green;
@@ -74,4 +75,19 @@
   align-content: center;
   margin-bottom: 1rem;
   padding: 12px;
+  transition: 300ms;
+  &:hover {
+    background-color: $orange-red !important;
+    border: 1px solid $orange-red;
+
+  }
+}
+
+
+.hover-effekt {
+  &:hover {
+    textarea{
+      border: 1px solid $dark-green;
+    }
+  }
 }
