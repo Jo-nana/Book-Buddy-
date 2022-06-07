@@ -16,12 +16,12 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    @book = Book.find(params[:book_id])
+    # @book = Book.find(params[:book_id])
     @booking = Booking.find(params[:id])
     @booking.accepted = true
     @booking.save
     @booking.book.change_availability_to_false
-    # redirect_to :book_path(@book), notice: "Request accepted!"
+    redirect_to dashboard_path, notice: "Request accepted!"
   end
 
   private

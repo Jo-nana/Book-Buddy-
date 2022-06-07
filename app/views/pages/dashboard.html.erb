@@ -25,14 +25,14 @@
     </ul>
   </div>
   <div>
-    <h2>My booking</h2>
+    <h2>My books request</h2>
     <ul>
     <% @owner_bookings.each do |booking| %>
+    <% if booking.accepted %>
       <li><%= booking.book.title %> | <button type="button" class="" id="openModal-<%= booking.id %>">Request</button>
-
       </li>
-      <%= booking.accepted %>
-
+    <% end %>
+    </ul>
 
       <div class="modal" id="<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -48,10 +48,8 @@
 
               <% booking.user.books.each do |book| %>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                  <label class="form-check-label" for="flexRadioDefault1">
-                          <%= book.title %> | <%= book.author %>
-                  </label>
+                  <%= book.title %> | <%= book.author %> | <%= link_to "Swap", '#' %>
+
                 </div>
               <% end %>
             </div>
@@ -59,19 +57,27 @@
             <div class="modal-footer">
               <button type="button" id="closeModal-<%= booking.id %>" class="btn btn-secondary">Close</button>
               <button type="button" class="btn btn-primary">Swap</button>
-              <button type="button" class="btn btn-primary">I don't want to swap</button>
+              <button type="button" class="btn btn-primary" id="no-swap-button">I don't want to swap</button>
+              <%= link_to "I don't want to swap", accept_path(booking.id), method: :patch %>
               <button type="button" class="btn btn-danger">Decline</button>
             </div>
           </div>
         </div>
       </div>
     <% end %>
-    </ul>
   </div>
 
       <%#= link_to "Request", accept_path(booking.book, booking), method: :patch %>
+  <h2>My bookclub</h2>
+  <ul>
+  <% @user.chatrooms.last(3).each do |chatroom| %>
+    <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom) %></li>
+  <% end %>
+  </ul>
+  <%= link_to "All chatrooms", chatrooms_path %>
 
 </div>
+
 
 <script>
   const openButtons  = document.querySelectorAll(`[id^="openModal"]`)
@@ -96,4 +102,11 @@
       modal.classList.remove('show-modal')
     });
   });
+
+
+  const button = document.querySelector("#no-swap-button")
+  button.addEventListener("click", (event) => {
+    console.log("click")
+
+  })
 </script>
