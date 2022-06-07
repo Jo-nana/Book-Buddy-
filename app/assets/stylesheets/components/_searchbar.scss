@@ -1,4 +1,4 @@
-.form-input {
+.searchbar-input {
   background-color: $white !important;
   font-family: $button-font;
   font-size: 14px;
@@ -11,7 +11,7 @@
   align-content: center;
 }
 
-.style-search-button {
+.style-searchbar-button {
   background-color: $dark-green !important;
   border: 1px solid $dark-green;
   border-radius: 0 4px 4px 0;
@@ -21,6 +21,6 @@
   margin: 1rem 0;
 }
 
-.test {
+.width-search {
   width: fit-content;
 }

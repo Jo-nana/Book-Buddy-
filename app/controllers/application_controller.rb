@@ -21,22 +21,13 @@ class ApplicationController < ActionController::Base
   #   end
   # end
 
-  def after_sign_in_path_for(resource)
-    if request.referer
-      if Rails.application.routes.recognize_path(URI(request.referer).path)[:id].present?
-        page_id = Rails.application.routes.recognize_path(URI(request.referer).path)[:id].to_i
-      end
-    end
-    if request.referer == "http://localhost:3000/books/#{page_id}"
-      @book = Book.find(page_id)
-      event_path(@book)
-    elsif request.referer == "http://localhost:3000/editions/#{page_id}" || request.referer == "https://www.independentresearchforum.com/editions/#{page_id}"
-      edition = Edition.find_by(number: page_id)
-      edition_path(edition.number)
-    else
-      root_path
-    end
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def configure_permitted_parameters
+    # For additional fields in app/views/devise/registrations/new.html.erb
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :address, :username, tags: []])
+
+    # For additional in app/views/devise/registrations/edit.html.erb
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :address, :username, tags: []])
   end
-
-
 end
