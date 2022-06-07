@@ -16,15 +16,16 @@ import "controllers"
 import "bootstrap"
 
 scroll = document.querySelector(".scroll-down")
-
-scroll.addEventListener("click",(event) => {
-  window.scrollTo(0, window.innerHeight);
-  event.preventDefault()
- if (window.scrollY >= window.innerHeight) {
-  document.querySelector(".grid-container").style.display = "none"
-} else {
+if (scroll) {
+  scroll.addEventListener("click",(event) => {
+    window.scrollTo(0, window.innerHeight);
+    event.preventDefault()
+   if (window.scrollY >= window.innerHeight) {
+    document.querySelector(".grid-container").style.display = "none"
+  } else {
+  }
+  })
 }
-})
 
 import { init_showButton } from '../plugins/init_showButton';
 document.addEventListener('turbolinks:load', () => {

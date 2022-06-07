@@ -62,15 +62,15 @@
 
  <%# Search bar %>
   <div data-controller="search-books">
-        <%= form_tag root_path, method: :get, class:"d-flex m-auto test", data: { search_books_target: 'form' } do %>
+        <%= form_tag root_path, method: :get, class:"d-flex m-auto width-search", data: { search_books_target: 'form' } do %>
           <%= text_field_tag :query,
             params[:query],
-            class: "form-input",
+            class: "searchbar-input",
             placeholder: "Find a book",
             data: { search_books_target: 'input', action: 'keyup->search-books#update' }
           %>
           <%= hidden_field_tag :dissapear, "true" %>
-          <%= button_tag type: "submit", class: "style-search-button" do %>
+          <%= button_tag type: "submit", class: "style-searchbar-button" do %>
             <i data-feather="search"></i>
           <% end %>
           <div class="icons-show icon-container" >
