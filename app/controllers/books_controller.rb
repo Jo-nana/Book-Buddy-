@@ -45,20 +45,45 @@ class BooksController < ApplicationController
   end
 
   def new
+    @book = Book.new
   end
 
   def create
+    @book = Book.new(book_params)
+    @book.user = current_user
+    if @book.save!
+      redirect_to dashboard_path, notice: 'New book was successfully added.'
+    else
+      render :new
+    end
+
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
 
   def update
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      redirect_to dashboard_path, notice: 'Book was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+
+    redirect_to dashboard_url, notice: 'Book was successfully destroyed.'
   end
 
+  private
+
+  def book_params
+    params.require(:book).permit(:title, :author, :description, :year, :photo, :tags)
+  end
   # def calculate_distance
   #   @delta = Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude], [book.user.latitude, book.user.longitude])
   # end

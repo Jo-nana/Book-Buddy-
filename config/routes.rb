@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'component', to: 'pages#component'
   get 'dashboard', to: 'pages#dashboard'
-  patch 'books/:book_id/bookings/:id/accept', to: 'bookings#accept', as: :accept
+  patch '/bookings/:id', to: 'bookings#accept', as: :accept
+  patch '/swaps/:id', to: 'bookings#swap', as: :swap
 
   resources :books, except: :index do
     resources :bookings, only: [:new, :create]
