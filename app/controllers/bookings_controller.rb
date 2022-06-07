@@ -24,6 +24,24 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path, notice: "Request accepted!"
   end
 
+  def swap
+
+      # @book = Book.find(params[:book_id])
+    @booking = Booking.find(params[:booking_id])
+    @booking.accepted = true
+    @booking.save!
+    @booking.book.change_availability_to_false
+
+    @booking_one = Booking.new(start_date: @booking.start_date, end_date: @booking.end_date, accepted: true)
+    @book_one = Book.find(params[:id])
+    @booking_one.book = @book_one
+    @booking_one.user = current_user
+    @booking_one.save!
+    @booking_one.book.change_availability_to_false
+    redirect_to dashboard_path, notice: "It's a swap!"
+  end
+
+
   private
 
   def booking_params

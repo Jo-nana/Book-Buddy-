@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'component', to: 'pages#component'
   get 'dashboard', to: 'pages#dashboard'
   patch '/bookings/:id', to: 'bookings#accept', as: :accept
+  patch '/swaps/:id', to: 'bookings#swap', as: :swap
 
   resources :books, except: :index do
     resources :bookings, only: [:new, :create]

@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_one_attached :photo
 
-  validates :title, :author, :tags, :picture, presence: true
+  validates :title, :author, presence: true
   validates :year, presence: true, numericality: { only_integer: true }
   validates :description, length: { maximum: 500, too_long: "%<count> characters is the maximum allowed" }
 

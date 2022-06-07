@@ -18,5 +18,6 @@ class PagesController < ApplicationController
       @owner_bookings << book.bookings unless book.bookings.empty?
     end
     @owner_bookings = @owner_bookings.flatten
+    @bookings = Booking.all
   end
 end

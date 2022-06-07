@@ -8,10 +8,15 @@
     <h2> My library</h3>
     <ul>
       <% @user.books.each do |book| %>
-        <li><%= book.title %> | <%= book.author %></li>
+        <li><%= book.title %> | <%= book.author %> | <%= link_to "Delete",
+            book_path(book),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %> | <%= link_to "Update", edit_book_path(book)%></li>
       <% end %>
     </ul>
   </div>
+
+  <%= link_to"Add a book", new_book_path %>
 
   <div>
     <h2> My profile</h2>
@@ -25,14 +30,19 @@
     </ul>
   </div>
   <div>
-    <h2>My books request</h2>
+    <h2>My booking</h2>
+
     <ul>
     <% @owner_bookings.each do |booking| %>
-    <% if booking.accepted %>
+    <% if !booking.accepted %>
+        <p>Pending request(s) :</p>
       <li><%= booking.book.title %> | <button type="button" class="" id="openModal-<%= booking.id %>">Request</button>
       </li>
     <% end %>
+
     </ul>
+
+
 
       <div class="modal" id="<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -48,22 +58,29 @@
 
               <% booking.user.books.each do |book| %>
                 <div class="form-check">
-                  <%= book.title %> | <%= book.author %> | <%= link_to "Swap", '#' %>
-
+                  <%= book.title %> | <%= book.author %> | <%= link_to "Swap", swap_path(book.id, booking_id: booking.id), method: :patch %>
                 </div>
               <% end %>
             </div>
 
             <div class="modal-footer">
               <button type="button" id="closeModal-<%= booking.id %>" class="btn btn-secondary">Close</button>
-              <button type="button" class="btn btn-primary">Swap</button>
-              <button type="button" class="btn btn-primary" id="no-swap-button">I don't want to swap</button>
               <%= link_to "I don't want to swap", accept_path(booking.id), method: :patch %>
               <button type="button" class="btn btn-danger">Decline</button>
             </div>
           </div>
         </div>
       </div>
+    <% end %>
+
+
+    <% if @user.bookings.pluck(:book_id).empty? %>
+      <p>You are not borrowing books currently</p>
+    <% else %>
+      <p>Book(s) you are currently boorowing :</p>
+      <% Book.where(id: @user.bookings.pluck(:book_id)).each do |book| %>
+      <li><%= book.title %> | <%= book.author %> | <%= book.user.username %></li>
+      <% end %>
     <% end %>
   </div>
 
@@ -104,9 +121,5 @@
   });
 
 
-  const button = document.querySelector("#no-swap-button")
-  button.addEventListener("click", (event) => {
-    console.log("click")
 
-  })
 </script>
