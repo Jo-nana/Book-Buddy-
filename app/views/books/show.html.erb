@@ -79,7 +79,7 @@
     <div class="results-container"></div>
     <div class="cards-rec">
     <%# @books.where(availability: true) do |b| %>
-      <% @books_tag.where(availability: true).first(3).each do |b| %>
+      <% @books_tag.where(availability: true).where.not(user_id: current_user.id).first(3).each do |b| %>
         <%= link_to book_path(b) do %>
           <div class="card-product-rec">
             <%= image_tag b.picture %>
