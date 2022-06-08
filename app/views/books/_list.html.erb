@@ -5,7 +5,12 @@
         <%= cl_image_tag(b.photo.key)%>
         <div class="card-product-infos">
           <div>
-            <h2><%= b.title %></h2>
+            <h2>
+            <% if b.title.length > 30 %>
+              <%= b.title[0..30]... %></h2>
+            <% else %>
+              <%= b.title %></h2>
+            <% end %>
             <p><%= b.author %></p>
             <p><%= b.year %></p>
           </div>

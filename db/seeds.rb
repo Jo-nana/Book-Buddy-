@@ -7,11 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require "open-uri"
-
 puts "Destroy all.."
-User.destroy_all
-Book.destroy_all
 Chatroom.destroy_all
+Book.destroy_all
+User.destroy_all
 
 puts "Creating users..."
 freddy = User.create!(first_name: 'Frederik', last_name: 'Feldmeier', email:'f.feldmeier98@googlemail.com',
