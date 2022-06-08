@@ -23,11 +23,7 @@
                   <%= link_to "Borrow Book", new_book_booking_path(@book) %>
                 </button>
               <% else %>
-                <button class="button-secondary" style="">
-                  <%= link_to "Borrow Book", new_user_session_path, book: @book %>
-
-                </button>
-
+              <%= link_to "Borrow Book", new_user_session_path, class: "button-secondary", book: @book %>
               <% end %>
             </div>
         </div>

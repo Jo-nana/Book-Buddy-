@@ -77,7 +77,7 @@
     <% if @user.bookings.pluck(:book_id).empty? %>
       <p>You are not borrowing books currently</p>
     <% else %>
-      <p>Book(s) you are currently boorowing :</p>
+      <p>Book(s) you are currently borrowing :</p>
       <% Book.where(id: @user.bookings.pluck(:book_id)).each do |book| %>
       <li><%= book.title %> | <%= book.author %> | <%= book.user.username %></li>
       <% end %>
