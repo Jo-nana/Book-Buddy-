@@ -35,7 +35,7 @@ Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse 
             picture: "https://images-na.ssl-images-amazon.com/images/I/81zqDem9OvL.jpg", availability: true, user: freddy)
 contemplation = Book.create!(title: "Les Contemplations", author: "Victor Hugo", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
-  Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2002, tags: ["Poetry", "Classic"],
+Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2002, tags: ["Poetry", "Classic"],
             picture: "https://pictures.abebooks.com/isbn/9782253014997-uk-300.jpg", availability: true, user: johanna)
 b1984 = Book.create!(title: "1984", author: "George Orwell", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
