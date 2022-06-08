@@ -54,3 +54,18 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 2rem;
 }
+
+
+// dashboard
+
+.dashboard-container{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 24px;
+
+  #inner-grid-library{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 18px;
+  }
+}

@@ -1,103 +1,151 @@
 <style>.show-modal{display: block;}</style>
 
 <div class="container">
+
   <h1>Your dashboard </h1>
+    <h2 id="title-abril-font"> My library</h3>
 
+  <div class="dashboard-container">
+    <div>
+      <div id="inner-grid-library">
 
-  <div>
-    <h2> My library</h3>
-    <ul>
-      <% @user.books.each do |book| %>
-        <li><%= book.title %> | <%= book.author %> | <%= link_to "Delete",
-            book_path(book),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %> | <%= link_to "Update", edit_book_path(book)%></li>
-      <% end %>
-    </ul>
-  </div>
+          <% @user.books.each do |book| %>
+          <div class="card-product">
+            <%= cl_image_tag(book.photo.key)%>
+            <div class="card-product-infos">
+              <div>
+                <h2><%= book.title %></h2>
+                <p><%= book.author %></p>
+                <p><%= book.year %></p>
+              </div>
+              <div class="icons">
+                <% if book.availability %>
+                  <p id="available-tag-<%= book.id %>"class="d-none available-text">Available</p>
+                  <i class="fa-solid fa-circle" id="circle-<%= book.id %>" class="available"></i>
+                <% else %>
+                  <i class="fa-solid fa-circle" id="circle-<%= book.id %>" class="not-available"></i>
+                <% end %>
+                <%= link_to book_path(book),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } do %>
+                      <i class="fa-solid fa-trash"></i>
+                    <% end %>
 
-  <%= link_to"Add a book", new_book_path %>
-
-  <div>
-    <h2> My profile</h2>
-    <p><%= @user_full_name %></p>
-    <p><%= @user.username %></p>
-    <h3>My tags</h3>
-    <ul>
-      <% @user.tags.each do |tag| %>
-      <li><%= tag %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div>
-    <h2>My booking</h2>
-
-    <ul>
-    <% @owner_bookings.each do |booking| %>
-    <% if !booking.accepted %>
-        <p>Pending request(s) :</p>
-      <li><%= booking.book.title %> | <button type="button" class="" id="openModal-<%= booking.id %>">Request</button>
-      </li>
-    <% end %>
-
-    </ul>
-
-
-
-      <div class="modal" id="<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"><%= booking.user.first_name %>'s library</h5>
-              <button type="button" class="btn-close" id="closeModal-<%= booking.id %>">
-              </button>
-            </div>
-
-            <div class="modal-body">
-              <label for="message-text" class="col-form-label">Choose a book to swap:</label>
-
-              <% booking.user.books.each do |book| %>
-                <div class="form-check">
-                  <%= book.title %> | <%= book.author %> | <%= link_to "Swap", swap_path(book.id, booking_id: booking.id), method: :patch %>
-                </div>
-              <% end %>
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" id="closeModal-<%= booking.id %>" class="btn btn-secondary">Close</button>
-              <%= link_to "Accept", accept_path(booking.id), method: :patch %>
-              <button type="button" class="btn btn-danger">Decline</button>
+                <%= link_to edit_book_path(book) do %>
+                  <i class="fa-solid fa-pen-nib"></i>
+                <% end %>
+              </div>
             </div>
           </div>
+          <% end %>
+      </div>
+    </div>
+
+
+    <div class="sticky-one" style="text-align: center">
+      <div id="user-profile-card">
+        <h2> My profile</h2>
+        <%= image_tag "user-astronaut-solid.svg", class:"round-profile-picture" %>
+        <h3><%= @user_full_name %></h3>
+        <p>Username : <%= @user.username %></p>
+        <div id="tags-list" style="display: flex">
+          <% @user.tags.each do |tag| %>
+          <div class="tags">
+            <%= tag %>
+          </div>
+          <% end %>
         </div>
       </div>
-    <% end %>
+      <div class="text-bloc">
+        <h2> Add a new book
+          <%= link_to new_book_path do %>
+            <i class="fa-solid fa-circle-plus"></i>
+          <% end %>
+        </h2>
+      </div>
 
+      <div class="inline-string"></div>
 
-    <% if @user.bookings.pluck(:book_id).empty? %>
-      <p>You are not borrowing books currently</p>
-    <% else %>
-      <p>Book(s) you are currently borrowing :</p>
-      <% Book.where(id: @user.bookings.pluck(:book_id)).each do |book| %>
-      <li><%= book.title %> | <%= book.author %> | <%= book.user.username %></li>
-      <% end %>
-    <% end %>
+      <div class="text-bloc">
+        <h2>Pending book(s)</h2>
+        <%# if @owner_pending_bookings %>
+          <%# <p>There is no pending request currently.</p> %>
+        <%# else %>
+            <% @owner_bookings.each do |booking| %>
+            <% if !booking.accepted %>
+              <p id="request-text"><%= booking.book.title %> <button type="button" class="button-very-small-secondary-red" id="openModal-<%= booking.id %>">Request</button>
+              </p>
+
+            <% end %>
+
+            <div class="modal" id="<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><%= booking.user.first_name %>'s library</h5>
+                    <button type="button" class="btn-close" id="closeModal-<%= booking.id %>">
+                    </button>
+                  </div>
+
+                  <div class="modal-body">
+                    <label for="message-text" class="col-form-label">Choose a book to swap:</label>
+
+                    <% booking.user.books.each do |book| %>
+                      <div class="form-check">
+                        <%= book.title %> | <%= book.author %> | <%= link_to "Swap", swap_path(book.id, booking_id: booking.id), method: :patch %>
+                      </div>
+                    <% end %>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" id="closeModal-<%= booking.id %>" class="btn-request-library button-secondary-small-green">Close</button>
+                    <%= link_to "Accept without swap", accept_path(booking.id), method: :patch, class:"btn-request-library button-primary-small-green" %>
+                    <button type="button" class="btn-request-library button-primary-small-red">Decline</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+        <%# end %>
+        <div class="inline-string" style="margin-top: 21px;"></div>
+      </div>
+      <div class="text-bloc">
+        <h2>Book(s) borrowed</h2>
+        <% if @user.bookings.pluck(:book_id).empty? %>
+          <p>You are not borrowing books currently.</p>
+        <% else %>
+            <% Book.where(id: @user.bookings.pluck(:book_id)).each do |book| %>
+            <p><%= book.title %> | <%= book.author %> <br> Owner: <strong><%= book.user.username %></strong></p>
+            <% end %>
+        <% end %>
+      </div>
+          <%#= link_to "Request", accept_path(booking.book, booking), method: :patch %>
+        <div class="inline-string"></div>
+      <div class="text-bloc">
+        <h2>My bookclub</h2>
+
+        <% @user.chatrooms.where(bookclub: true).last(3).each do |chatroom| %>
+          <p> <strong><%= chatroom.book.title %>:</strong> <%= chatroom.name %>
+          <%= link_to chatroom_path(chatroom) do %>
+            <i class="fa-solid fa-arrow-right-long"></i>
+          <% end %>
+          </p>
+        <% end %>
+
+        <h3><%= link_to "All bookclubs", chatrooms_path %></h3>
+      </div>
+      <div class="inline-string"></div>
+
+        <%# individual chats  %>
+      <div class="text-bloc">
+        <h2>My chats</h2>
+        <% @user.chatrooms.where(bookclub: false).last(3).each do |chatroom| %>
+          <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom) %></li>
+        <% end %>
+        <%= link_to "All chatrooms", chatrooms_path %>
+      </div>
+    </div>
   </div>
-
-      <%#= link_to "Request", accept_path(booking.book, booking), method: :patch %>
-  <h2>My bookclubs</h2>
-  <ul>
-  <% @user.chatrooms.where(bookclub: true).last(3).each do |chatroom| %>
-    <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom) %></li>
-  <% end %>
-  </ul>
-  <%# individual chats  %>
-  <h2>My chats</h2>
-  <% @user.chatrooms.where(bookclub: false).last(3).each do |chatroom| %>
-    <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom) %></li>
-  <% end %>
-  <%= link_to "All chatrooms", chatrooms_path %>
-
 </div>
 
 

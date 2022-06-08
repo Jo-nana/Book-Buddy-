@@ -1,0 +1,94 @@
+.text-bloc{
+  text-align: center;
+  margin: 22px 0;
+
+  #request-text{
+    margin: 12px 0;
+  }
+
+  p {
+    font-size: 18px;
+  }
+  a{
+    text-decoration: none;
+  }
+
+
+  .fa-circle-plus{
+    font-size: 20px;
+    margin-top: 12px;
+    &hover{
+      color: $dark-green !important;
+    }
+  }
+  .fa-arrow-right-long{
+    font-size: 18px;
+    margin-left: 6px;
+    &hover{
+      color: $dark-green !important;
+    }
+  }
+
+
+  h3{
+    margin-top: 12px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.sticky-one {
+  height: fit-content;
+  position: sticky;
+
+  top: 0px;
+  right: 0px;
+}
+
+
+.icons {
+  font-size: 18px;
+  text-align: right;
+  .available{
+    color: $dark-green;
+    position: relative;
+      .available-text{
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        z-index: 1;
+      }
+
+      .available:hover .available-text {
+        visibility: visible;
+      }
+  }
+
+  .not-available{
+    color: $orange-red;
+  }
+}
+
+.show-element{
+  // visibility: visible !important;
+  display: inline-block !important;
+
+}
+
+.btn-request-library{
+  margin: 0px 5px;
+}
+
+.inline-string{
+  background-color: $dark-green;
+  height: 1px;
+  width: 100%;
+}

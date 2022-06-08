@@ -76,7 +76,7 @@
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  position: relative;
+  // position: relative;
   bottom: 2.5rem;
   i {
     color: $white;
@@ -161,6 +161,58 @@
   }
 }
 
+
+// Primary small button reen
+.button-primary-small-green {
+  appearance: button;
+  background-color: $dark-green;
+  background-image: none;
+  border: 1px solid  $dark-green;
+  border-radius: 4px;
+  box-shadow: $white 4px 4px 0 0, $dark-green 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $button-font;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 10px 15px !important;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-primary-small-green:focus {
+  text-decoration: none;
+}
+
+.button-primary-small-green:hover {
+  text-decoration: none;
+}
+
+.button-primary-small-green:active {
+  box-shadow: $dark-green(0, 0, 0, .125) 0 4px 4px inset;
+  outline: 0;
+}
+
+.button-primary-small-green:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, $dark-green 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-primary-small-green {
+    padding: 12px 50px;
+  }
+}
 // Secondary button orange-red
 .button-secondary {
   appearance: button;
@@ -251,7 +303,7 @@ a {
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  position: relative;
+  // position: relative;
   bottom: 2.5rem;
   left: 0.4rem;
   a {
@@ -280,6 +332,64 @@ a {
 
 @media (min-width: 768px) {
   .button-small-secondary-red {
+    padding: 8px 17px;
+  }
+}
+
+// Secondary button orange-red very small version (request button on the dashboard)
+.button-very-small-secondary-red {
+  appearance: button;
+  background-color: $white;
+  background-image: none;
+  border: 1px solid  $orange-red;
+  border-radius: 4px;
+  box-shadow: $orange-red 4px 4px 0 0, $orange-red 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: $orange-red !important;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  margin: 0 5px 8px 0;
+  overflow: visible;
+  padding: 3px 13px !important;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  // position: relative;
+  bottom: 2.5rem;
+  left: 0.4rem;
+  a {
+    color: $orange-red;
+    text-align: center;
+  }
+}
+
+.button-very-small-secondary-red:focus {
+  text-decoration: none;
+}
+
+.button-very-small-secondary-red:hover {
+  text-decoration: none;
+}
+
+.button-very-small-secondary-red:active {
+  box-shadow: $orange-red(0, 0, 0, .125) 0 4px 4px inset;
+  outline: 0;
+}
+
+.button-very-small-secondary-red:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, $orange-red 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-very-small-secondary-red {
     padding: 8px 17px;
   }
 }
@@ -336,6 +446,57 @@ a {
   }
 }
 
+// Secondary small button green
+.button-secondary-small-green {
+  appearance: button;
+  background-color: $white;
+  background-image: none;
+  border: 1px solid  $dark-green;
+  border-radius: 4px;
+  box-shadow: $dark-green 4px 4px 0 0, $dark-green 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: $dark-green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $button-font;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 10px 15px !important;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-secondary-small-green:focus {
+  text-decoration: none;
+}
+
+.button-secondary-small-green:hover {
+  text-decoration: none;
+}
+
+.button-secondary-small-green:active {
+  box-shadow: $dark-green(0, 0, 0, .125) 0 4px 4px inset;
+  outline: 0;
+}
+
+.button-secondary-small-green:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, $dark-green 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-secondary-small-green {
+    padding: 12px 50px;
+  }
+}
 .button-show {
   left: 50%;
   transform: translateX(-50%);

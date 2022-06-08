@@ -6,7 +6,7 @@ class Book < ApplicationRecord
 
   validates :title, :author, presence: true
   validates :year, presence: true, numericality: { only_integer: true }
-  validates :description, length: { maximum: 500, too_long: "%<count> characters is the maximum allowed" }
+  validates :description, length: { maximum: 1000, too_long: "%<count> characters is the maximum allowed" }
 
   def change_availability_to_false
     # code to change availiability of computer

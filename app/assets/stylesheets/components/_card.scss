@@ -175,3 +175,87 @@ h4{
     justify-content: space-between;
     align-items: flex-end;
   }
+
+  // dashboard
+  #user-profile-card{
+    overflow: hidden;
+    background: $white;
+    color: $dark-green;
+    border: 1px solid $orange-red;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: $orange-red 4px 4px 0 0, $orange-red 4px 4px 0 1px;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 24px;
+
+    h2{
+      font-family: 'Abril Fatface', 'cursive';
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    h3{
+      font-weight: 400;
+      font-size: 22px;
+    }
+
+    p{
+      font-family: $txt-font;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .round-profile-picture{
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 12px;
+
+    }
+    #tags-list{
+      display: flex;
+      margin-bottom: 12px;
+
+      .tags{
+        margin-right: 8px;
+        background-color: $dark-green !important;
+        padding: 4px 8px;
+        border-radius: 8px;
+        color: $white;
+        font-weight: 200 !important;
+      }
+
+    }
+  }
+
+  // DASHBOARD - card library displaying for the swap
+
+.modal-content{
+  background: $white;
+  color: $dark-green;
+  border: 1px solid $dark-green;
+  border-radius: 4px;
+  box-shadow: $dark-green 4px 4px 0 0, $dark-green 4px 4px 0 1px;
+
+  .modal-title{
+    font-family: 'Abril Fatface', 'cursive';
+    font-size: 30px;
+  }
+
+  .modal-body{
+    font-family: $button-font;
+    text-align: left !important;
+
+    .col-form-label{
+      text-transform: uppercase;
+      font-size: 20px;
+    }
+
+    .form-text{
+      font-weight: 200;
+      font-size: 18px;
+    }
+  }
+}
