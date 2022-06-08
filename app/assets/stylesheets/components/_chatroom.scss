@@ -25,7 +25,10 @@
   padding: 2rem 10rem;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
   width: 100%;
+  height: 65%;
 }
 
 .msg-mine {
@@ -35,9 +38,6 @@
   margin-bottom: 1rem;
   border-radius: 8px 8px 0 8px;
   padding: 4px 1rem 4px 1rem;
-  width: 50%;
-  align-self: flex-end;
-
 }
 
 .msg-yours {
@@ -45,9 +45,8 @@
   text-align: left;
   color: $white;
   margin-bottom: 1rem;
-  border-radius: 8px 8px 8px 0 ;
+  border-radius: 8px 8px 8px 0;
   padding: 4px 1rem 4px 1rem;
-  width: 50%;
 }
 
 .chatroom-messages-input {
@@ -76,18 +75,13 @@
   margin-bottom: 1rem;
   padding: 12px;
   transition: 300ms;
-  &:hover {
-    background-color: $orange-red !important;
-    border: 1px solid $orange-red;
-
-  }
 }
 
+.chat-msg-yours {
+  align-self: flex-start;
+}
 
-.hover-effekt {
-  &:hover {
-    textarea{
-      border: 1px solid $dark-green;
-    }
-  }
+.chat-msg-mine {
+  text-align: right;
+  align-self: flex-end;
 }

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :books, dependent: :destroy
-  has_many :chatrooms, dependent: :destroy
+  has_many :chatrooms
   has_many :messages, dependent: :destroy
   has_many :bookings, dependent: :destroy
   # has_many :owner_bookings, through: :books, source: :booking
@@ -18,5 +18,9 @@ class User < ApplicationRecord
 
   def full_name
     return "#{self.first_name} #{self.last_name}"
+  end
+
+  def chats_owner
+    self.books.bookings.chatrooms
   end
 end

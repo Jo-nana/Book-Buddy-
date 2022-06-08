@@ -68,8 +68,10 @@ export default class extends Controller {
   }
 
   _convertToReceivingMessage(element) {
-    console.log(element)
-    element.classList.remove("msg-mine")
-    element.classList.add("msg-yours")
+    element.classList.remove("chat-msg-mine")
+    element.classList.add("chat-msg-yours")
+
+    element.children[1].classList.remove("msg-mine")
+    element.children[1].classList.add("msg-yours")
   }
 }

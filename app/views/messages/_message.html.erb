@@ -1,4 +1,6 @@
-<div id="message-<%= message.id %>" data-sender-id="<%= message.user.id %>" class="msg-mine">
-      <%# <i><%= message.created_at.strftime("%a %b %e at %l:%M %p")</i> %>
-  <p><%= message.user.username%>:<%=message.content%></p>
+<div data-sender-id="<%= message.user.id %>" class="<%= message.user == current_user ? 'chat-msg-mine' : 'chat-msg-yours' %>">
+  <p><%= message.user.username %></p>
+  <div id="message-<%= message.id %>" class="<%= message.user == current_user ? 'msg-mine' : 'msg-yours' %>">
+    <p><%= message.content %></p>
+  </div>
 </div>

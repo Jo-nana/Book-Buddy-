@@ -7,11 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require "open-uri"
-
 puts "Destroy all.."
-User.destroy_all
-Book.destroy_all
 Chatroom.destroy_all
+Book.destroy_all
+User.destroy_all
 
 puts "Creating users..."
 freddy = User.create!(first_name: 'Frederik', last_name: 'Feldmeier', email:'f.feldmeier98@googlemail.com',
@@ -44,7 +43,7 @@ Book.create!(title: "Game of thrones", author: "George Orwell", description: "Th
 Book.create!(title: "Animal Farm", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
             picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)
 
-Book.create!(title: "Harry Potter and the stone", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
+Book.create!(title: "Harry Potter and the stone of Ascaban that he almost lost - was super close", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
             picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)
 Book.create!(title: "Le Paris des merveilles", author: "George Orwell", description: "The book is set in 1984 in Oceania, one of three perpetually warring totalitarian states (the other two are Eurasia and Eastasia). Oceania is governed by the all-controlling Party, which has brainwashed the population into unthinking obedience to its leader, Big Brother.", year: 2008, tags: ["Distopia", "S-F"],
             picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: freddy)

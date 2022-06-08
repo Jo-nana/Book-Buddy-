@@ -11,25 +11,24 @@
     </div>
     <div class="messages" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
-        <div id="message-<%= message.id %>">
-          <%= render "messages/message", message: message %>
-        </div>
+        <%= render "messages/message", message: message %>
       <% end %>
     </div>
-    <div class="hover-effekt">
-      <div class="chatroom-messages-input">
-        <%= simple_form_for [@chatroom, @message],
-          remote: true,
-          html: {data: {action: "ajax:success->chatroom-subscription#resetForm", chatroom_subscription_target: "form"}, class: "d-flex" } do |f|
-          %>
-          <%= f.input :content,
-            label: false,
-            placeholder: "Message in ##{@chatroom.name}",
-            wrapper_html: {class: "flex-grow-1"}
-          %>
-          <%= f.submit "Send", class: "chatroom-submit-button" %>
-        <% end %>
-      </div>
-    </div>
+    <div class="chatroom-messages-input">
+      <%= simple_form_for [@chatroom, @message],
+        remote: true,
+        html: {data: {action: "ajax:success->chatroom-subscription#resetForm", chatroom_subscription_target: "form"}, class: "d-flex" } do |f|
+        %>
+      <%= f.input :content,
+          label: false,
+          placeholder: "Message in ##{@chatroom.name}",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+      <%= f.submit "Send", class: "chatroom-submit-button" %>
+    <% end %>
   </div>
 </div>
+<script>
+  var objDiv = document.querySelector('.messages')
+  objDiv.scrollTop = objDiv.scrollHeight;
+</script>
