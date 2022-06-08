@@ -16,6 +16,10 @@
           </div>
           <%= f.hidden_field :book, value: params[:book] %>
 
+          <!--
+          If book is present (e.g. passed as URL parameter or as variable); then redirect to show of book
+          -->
+
 
           <p id="small-text-form">Not registered yet ? <%= link_to "Create an account", new_user_registration_path %></p>
           <div class="form-actions">

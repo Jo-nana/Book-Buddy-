@@ -19,5 +19,8 @@ class PagesController < ApplicationController
     end
     @owner_bookings = @owner_bookings.flatten
     @bookings = Booking.all
+    @owner_pending_bookings = (@owner_bookings.select do |booking|
+      booking.accepted == false
+    end)
   end
 end

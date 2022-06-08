@@ -28,8 +28,10 @@ if (scroll) {
 }
 
 import { init_showButton } from '../plugins/init_showButton';
+import { init_hoverIcon } from '../plugins/init_hoverIcon';
 document.addEventListener('turbolinks:load', () => {
   init_showButton();
+  init_hoverIcon();
 });
 
 
