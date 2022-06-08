@@ -15,13 +15,13 @@ User.destroy_all
 
 puts "Creating users...🙋‍♀️🙋‍♀️🙋‍♀️🙋‍♀️"
 freddy = User.create!(first_name: 'Frederik', last_name: 'Feldmeier', email:'f.feldmeier98@googlemail.com',
-                      password: '123456', username: 'elfeldos', tags: ["S-F", "Fantasy", "Adventure"], address: "Westerstraat 40H, 1015 MK Amsterdam")
+                      password: '123456', username: 'elfeldos', tags: ["S-F", "Fantasy", "Adventure"], address: "110 rue Petit, Paris")
 johanna = User.create!(first_name: 'Johanna', last_name: 'Florange', email:'johanna@gmail.com',
-                       password: '1234567', username: 'jo-nana', tags: ["Horror", "Fantasy", "Poetry"], address: "Tweede Bloemdwarsstraat 28, 1016 LM Amsterdam")
+                       password: '1234567', username: 'jo-nana', tags: ["Horror", "Fantasy", "Poetry"], address: "17 rue de la Banque, Paris ")
 michel = User.create!(first_name: 'Michel', last_name: 'Dupond', email:'michel@gmail.com',
-                       password: '1234567', username: 'michou', tags: ["Avdenture", "Classic", "Poetry"], address: "Elandsstraat 22, 1016 SG Amsterdam")
+                       password: '1234567', username: 'michou', tags: ["Avdenture", "Classic", "Poetry"], address: "7 rue de Villeneuve, Garches")
 micheline = User.create!(first_name: 'Micheline', last_name: 'Pompom', email:'micheline@gmail.com',
-                       password: '1234567', username: 'michelinou', tags: ["Classic", "Horror", "Fantasy"], address: "Rokin 21-49, 1012 GL Amsterdam")
+                       password: '1234567', username: 'michelinou', tags: ["Classic", "Horror", "Fantasy"], address: "2 rue des Moulins, Paris")
 
 puts "Creating books...📚📚📚📚"
 
