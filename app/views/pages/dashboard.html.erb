@@ -65,7 +65,7 @@
 
             <div class="modal-footer">
               <button type="button" id="closeModal-<%= booking.id %>" class="btn btn-secondary">Close</button>
-              <%= link_to "I don't want to swap", accept_path(booking.id), method: :patch %>
+              <%= link_to "Accept", accept_path(booking.id), method: :patch %>
               <button type="button" class="btn btn-danger">Decline</button>
             </div>
           </div>
@@ -85,12 +85,17 @@
   </div>
 
       <%#= link_to "Request", accept_path(booking.book, booking), method: :patch %>
-  <h2>My bookclub</h2>
+  <h2>My bookclubs</h2>
   <ul>
-  <% @user.chatrooms.last(3).each do |chatroom| %>
+  <% @user.chatrooms.where(bookclub: true).last(3).each do |chatroom| %>
     <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom) %></li>
   <% end %>
   </ul>
+  <%# individual chats  %>
+  <h2>My chats</h2>
+  <% @user.chatrooms.where(bookclub: false).last(3).each do |chatroom| %>
+    <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom) %></li>
+  <% end %>
   <%= link_to "All chatrooms", chatrooms_path %>
 
 </div>

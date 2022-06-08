@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def full_name
     return "#{self.first_name} #{self.last_name}"
   end
+
+  def chats_owner
+    self.books.bookings.chatrooms
+  end
 end
