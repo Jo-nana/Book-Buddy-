@@ -2,6 +2,10 @@
 
 <ul>
   <% @chatrooms.where(bookclub: true).each do |chatroom| %>
-  <li><%= chatroom.book.title%> : <%= chatroom.name %> | <%= link_to "Join", chatroom_path(chatroom)  %></li>
+    <% if user_signed_in? %>
+      <li><%= chatroom.book.title%> : <%= chatroom.name %> | <%= link_to "Join", chatroom_path(chatroom)  %></li>
+    <% else %>
+      <li><%= chatroom.book.title%> : <%= chatroom.name %> | <%= link_to "Join", new_user_session_path %></li>
+    <% end %>
   <% end %>
 </ul>

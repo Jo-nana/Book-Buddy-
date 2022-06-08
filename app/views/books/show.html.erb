@@ -36,7 +36,7 @@
         <div>
         <h2>Bookclubs</h2>
           <div class="bookclub-show">
-           <% @book.chatroom.last(3).each do |chatroom| %>
+           <% @book.chatroom.where(bookclub: true).last(3).each do |chatroom| %>
             <div class="bookclub-show-link">
               <% if user_signed_in? %>
                 <%= link_to chatroom_path(chatroom), id: "chatroomTitle-#{chatroom.id}" do %>
@@ -78,7 +78,8 @@
     <h2>Based on your tags, you might also like</h2>
     <div class="results-container"></div>
     <div class="cards-rec">
-      <% @books_tag.first(3).each do |b| %>
+    <%# @books.where(availability: true) do |b| %>
+      <% @books_tag.where(availability: true).first(3).each do |b| %>
         <%= link_to book_path(b) do %>
           <div class="card-product-rec">
             <%= image_tag b.picture %>
@@ -93,13 +94,15 @@
                       <%= tag %>
                     <% end %>
                 </h3>
-                <h3>1.3 km</h3>
-                <%# <%= raise %>
+                  <% if user_signed_in? %>
+                    <%= ((Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude], [b.user.latitude, b.user.longitude]))*(1.60934)).round%>km
+                  <% end %>
               </div>
             </div>
           </div>
         <% end %>
       <% end %>
+    <%# end %>
     </div>
   </div>
   </div>

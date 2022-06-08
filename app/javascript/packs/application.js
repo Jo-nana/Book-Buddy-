@@ -33,8 +33,8 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 
-// document.addEventListener('turbolinks:load', () => {
-//   if (document.querySelector(".remove-landing").innerText === "true"){
-//     document.querySelector(".grid-container").style.display = "none"
-//   }
-// })
+document.addEventListener('turbolinks:load', () => {
+  if (document.querySelector(".remove-landing").innerText === "true"){
+    document.querySelector(".grid-container").style.display = "none"
+  }
+})

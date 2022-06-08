@@ -1,6 +1,7 @@
 /* card product index*/
 .card-product {
 overflow: hidden;
+text-overflow: ellipsis;
 background: $white;
 color: $dark-green;
 border: 1px solid $dark-green;
@@ -104,6 +105,7 @@ h4{
 
 .card-product-rec {
   overflow: hidden;
+  text-overflow: ellipsis;
   background: $white;
   color: $dark-green;
   border: 1px solid $dark-green;
