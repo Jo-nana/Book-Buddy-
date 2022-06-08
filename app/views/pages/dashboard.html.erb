@@ -124,7 +124,7 @@
       <div class="text-bloc">
         <h2>My bookclub</h2>
 
-        <% @user.chatrooms.last(3).each do |chatroom| %>
+        <% @user.chatrooms.where(bookclub: true).last(3).each do |chatroom| %>
           <p> <strong><%= chatroom.book.title %>:</strong> <%= chatroom.name %>
           <%= link_to chatroom_path(chatroom) do %>
             <i class="fa-solid fa-arrow-right-long"></i>
@@ -135,6 +135,15 @@
         <h3><%= link_to "All bookclubs", chatrooms_path %></h3>
       </div>
       <div class="inline-string"></div>
+
+        <%# individual chats  %>
+      <div class="text-bloc">
+        <h2>My chats</h2>
+        <% @user.chatrooms.where(bookclub: false).last(3).each do |chatroom| %>
+          <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom) %></li>
+        <% end %>
+        <%= link_to "All chatrooms", chatrooms_path %>
+      </div>
     </div>
   </div>
 </div>
