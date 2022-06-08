@@ -18,7 +18,6 @@ const init_showButton = () => {
 
   window.addEventListener("turbolinks:load", (e) => {
     const allButtons = document.querySelectorAll(`[id^="chatJoinButton"]`)
-    console.log(allButtons)
     allButtons.forEach(button => {
       button.classList.remove('showButton')
     })

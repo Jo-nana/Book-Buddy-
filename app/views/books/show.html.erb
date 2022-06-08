@@ -23,7 +23,7 @@
                   <%= link_to "Borrow Book", new_book_booking_path(@book) %>
                 </button>
               <% else %>
-              <%= link_to "Borrow Book", new_user_session_path, class: "button-secondary", book: @book %>
+                <%= link_to "Borrow Book", new_user_session_path, class: "button-secondary", book: @book %>
               <% end %>
             </div>
         </div>
@@ -38,10 +38,20 @@
           <div class="bookclub-show">
            <% @book.chatroom.last(3).each do |chatroom| %>
             <div class="bookclub-show-link">
-              <%= link_to chatroom_path(chatroom), id: "chatroomTitle-#{chatroom.id}" do %>
-                <%= @book.title %> : <%= chatroom.name %>
+              <% if user_signed_in? %>
+                <%= link_to chatroom_path(chatroom), id: "chatroomTitle-#{chatroom.id}" do %>
+                  <%= @book.title %> : <%= chatroom.name %>
+                <% end %>
+              <% else %>
+                <%= link_to new_user_session_path, book: @book, id: "chatroomTitle-#{chatroom.id}" do %>
+                  <%= @book.title %> : <%= chatroom.name %>
+                <% end %>
               <% end %>
-              <%= link_to "Join", chatroom_path(chatroom), id: "chatJoinButton-#{chatroom.id}", class: "d-none"%>
+              <% if user_signed_in? %>
+                <%= link_to "Join", chatroom_path(chatroom), id: "chatJoinButton-#{chatroom.id}", class: "d-none"%>
+              <% else %>
+                <%= link_to "Join", new_user_session_path, id: "chatJoinButton-#{chatroom.id}", class: "d-none"%>
+              <% end %>
             </div>
             <% end %>
           </div>
