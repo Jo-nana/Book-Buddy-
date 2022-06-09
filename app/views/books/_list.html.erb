@@ -1,30 +1,56 @@
 <div class="cards">
-  <% @books.where(availability: true).each do |b| %>
-    <%= link_to book_path(b) do %>
-      <div class="card-product">
-        <%= cl_image_tag(b.photo.key)%>
-        <div class="card-product-infos">
-          <div>
-            <h2>
-            <% if b.title.length > 30 %>
-              <%= b.title[0..30]... %></h2>
-            <% else %>
-              <%= b.title %></h2>
-            <% end %>
-            <p><%= b.author %></p>
-            <p><%= b.year %></p>
-          </div>
-          <div class="card-price-km">
-            <h3><% b.tags.each do |tag| %>
-                  <%= tag %>
-                <% end %>
-            </h3>
-            <% if user_signed_in? %>
-              <%= ((Geocoder::Calculations.distance_between([user.latitude, user.longitude], [b.user.latitude, b.user.longitude]))*(1.60934)).round%>km
-            <% end %>
+  <% if user_signed_in? %>
+    <% @books.where(availability: true).where.not(user_id: current_user.id).each do |b| %>
+      <%= link_to book_path(b) do %>
+        <div class="card-product">
+          <%= cl_image_tag(b.photo.key)%>
+          <div class="card-product-infos">
+            <div>
+              <h2>
+              <% if b.title.length > 30 %>
+                <h2><%= b.title[0..30]... %></h2>
+              <% else %>
+                <h2><%= b.title %></h2>
+              <% end %>
+              <p><%= b.author %></p>
+              <p><%= b.year %></p>
+            </div>
+            <div class="card-price-km">
+              <h3><% b.tags.each do |tag| %>
+                    <%= tag %>
+                  <% end %>
+              </h3>
+                <%= ((Geocoder::Calculations.distance_between([user.latitude, user.longitude], [b.user.latitude, b.user.longitude]))*(1.60934)).round%>km
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  <% else %>
+    <% @books.where(availability: true).each do |b| %>
+        <%= link_to book_path(b) do %>
+          <div class="card-product">
+            <%= cl_image_tag(b.photo.key)%>
+            <div class="card-product-infos">
+              <div>
+                <h2>
+                <% if b.title.length > 30 %>
+                  <h2><%= b.title[0..30]... %></h2>
+                <% else %>
+                  <h2><%= b.title %></h2>
+                <% end %>
+                <p><%= b.author %></p>
+                <p><%= b.year %></p>
+              </div>
+              <div class="card-price-km">
+                <h3><% b.tags.each do |tag| %>
+                      <%= tag %>
+                    <% end %>
+                </h3>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
 </div>

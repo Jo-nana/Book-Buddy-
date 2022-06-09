@@ -59,30 +59,8 @@
 .icons {
   font-size: 18px;
   text-align: right;
-
-  .available{
-    color: $dark-green;
-    position: relative;
-      .available-text{
-        visibility: hidden;
-        width: 120px;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-
-        /* Position the tooltip text - see examples below! */
-        position: absolute;
-        z-index: 1;
-      }
-
-      .available:hover .available-text {
-        visibility: visible;
-      }
-  }
   .not-available{
-    color: $orange-red;
+    color: $orange-red !important;
   }
 
   a:hover, a:focus{
@@ -90,6 +68,32 @@
     opacity: 0.7;
     }
 
+}
+
+.available{
+  color: $dark-green;
+  position: relative;
+    .available-text{
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+
+      /* Position the tooltip text - see examples below! */
+      position: absolute;
+      z-index: 1;
+    }
+
+    .available:hover .available-text {
+      visibility: visible;
+    }
+}
+
+.not-available{
+  color: $orange-red !important;
 }
 
 .show-element{
