@@ -7,7 +7,7 @@
   </div>
   <div class="chatroom-messages-show card-chatroom">
     <div class="chatroom-header">
-      <h2><%= @chatroom.book.title %> : <%= @chatroom.name %></h2>
+      <h2><%=@chatroom.name%> <%= @chatroom.book.title %></h2>
     </div>
     <div class="messages" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
@@ -21,7 +21,7 @@
         %>
       <%= f.input :content,
           label: false,
-          placeholder: "Message in ##{@chatroom.name}",
+          placeholder: "Message in #{@chatroom.name}",
           wrapper_html: {class: "flex-grow-1"}
         %>
       <%= f.submit "Send", class: "chatroom-submit-button" %>

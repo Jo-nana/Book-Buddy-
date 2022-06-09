@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
     @booking.accepted = true
     @booking.save
     @booking.book.change_availability_to_false
-    chat = Chatroom.create!(user: @booking.user, book: @booking.book, name: @booking.book.user.first_name + " & " + current_user.first_name, bookclub: false)
+    chat = Chatroom.create!(user: @booking.user, book: @booking.book, name: " #  #{rand(1..100).to_s}", bookclub: false)
     redirect_to chatroom_path(chat), notice: "Request accepted!"
   end
 

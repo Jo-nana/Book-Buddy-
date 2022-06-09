@@ -91,9 +91,11 @@
                     <label for="message-text" class="col-form-label">Choose a book to swap:</label>
 
                     <% booking.user.books.each do |book| %>
-                      <div class="form-check">
-                        <%= book.title %> | <%= book.author %> | <%= link_to "Swap", swap_path(book.id, booking_id: booking.id), method: :patch %>
-                      </div>
+                      <% if book.availability %>
+                        <div class="form-check">
+                          <%= book.title %> | <%= book.author %> | <%= link_to "Swap", swap_path(book.id, booking_id: booking.id), method: :patch %>
+                        </div>
+                      <% end %>
                     <% end %>
                   </div>
 
@@ -114,11 +116,11 @@
         <% if @user.bookings.pluck(:book_id).empty? %>
           <p>You are not borrowing books currently.</p>
         <% else %>
-          <% if Book.where(id: @user.bookings.pluck(:book_id), availability: false) %>
+          <%# if @booking.accepted %>
             <% Book.where(id: @user.bookings.pluck(:book_id)).each do |book| %>
               <p><%= book.title %> | <%= book.author %> <br> Owner: <strong><%= book.user.username %></strong></p>
               <% end %>
-          <% end %>
+          <%# end %>
         <% end %>
       </div>
           <%#= link_to "Request", accept_path(booking.book, booking), method: :patch %>
@@ -127,6 +129,7 @@
         <h2>My bookclub</h2>
 
         <% @user.chatrooms.where(bookclub: true).last(3).each do |chatroom| %>
+
           <p> <strong><%= chatroom.book.title %>:</strong> <%= chatroom.name %>
           <%= link_to chatroom_path(chatroom) do %>
             <i class="fa-solid fa-arrow-right-long"></i>
@@ -144,7 +147,7 @@
         <% @user.chatrooms.where(bookclub: false).last(3).each do |chatroom| %>
           <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom) %></li>
         <% end %>
-        <%= link_to "All chatrooms", chatrooms_path %>
+        <%= link_to "All chat", chatrooms_path %>
       </div>
     </div>
   </div>
