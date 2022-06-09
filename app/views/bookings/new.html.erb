@@ -1,18 +1,25 @@
 
  <div class="container">
-  <%= simple_form_for [@book, @booking] do |b| %>
-      <div class="form-inputs">
-            <%= b.input :start_date,
-                        autofocus: true,
-                        input_html: { class:"style-input" },
-                        label_html: { class: "label-form" } %>
-            <%= b.input :end_date,
-                        autofocus: true,
-                        input_html: { class:"style-input" },
-                        label_html: { class: "label-form" } %>
-            <div class="form-actions">
-              <%= b.button :submit, "Book", class: 'button-form' %>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+      <div class="form-login-register">
+        <h1>Choose the dates</h1>
+        <%= simple_form_for [@book, @booking] do |b| %>
+          <div class="form-inputs">
+              <%= b.input :start_date,
+                          autofocus: true,
+                          input_html: { class:"style-input" },
+                          label_html: { class: "label-form" } %>
+              <%= b.input :end_date,
+                          autofocus: true,
+                          input_html: { class:"style-input" },
+                          label_html: { class: "label-form" } %>
+              <div class="form-actions">
+                <%= b.button :submit, "Book", class: 'btn-form' %>
+              </div>
             </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+  </div>
 </div>
