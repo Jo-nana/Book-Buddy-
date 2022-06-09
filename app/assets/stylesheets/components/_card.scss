@@ -233,12 +233,16 @@ h4{
 
   // DASHBOARD - card library displaying for the swap
 
+.modal_dialog{
+  width: 600px !important;
+  height: 500px !important;
+}
+
 .modal-content{
   background: $white;
   color: $dark-green;
-  border: 1px solid $dark-green;
+
   border-radius: 4px;
-  box-shadow: $dark-green 4px 4px 0 0, $dark-green 4px 4px 0 1px;
 
   .modal-title{
     font-family: 'Abril Fatface', 'cursive';
@@ -247,7 +251,11 @@ h4{
 
   .modal-body{
     font-family: $button-font;
+    font-weight: 100;
     text-align: left !important;
+    height: 300px;
+    overflow: scroll;
+    font-size: 18px;
 
     .col-form-label{
       text-transform: uppercase;

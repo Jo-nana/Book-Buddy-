@@ -51,6 +51,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user = current_user
+    @book.availability = true
     if @book.save!
       redirect_to dashboard_path, notice: 'New book was successfully added.'
     else
