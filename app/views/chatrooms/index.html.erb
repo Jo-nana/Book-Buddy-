@@ -1,11 +1,17 @@
-<h1>All the bookclubs</h1>
+<div class="container">
+  <h1>All the bookclubs</h1>
 
-<ul>
-  <% @chatrooms.where(bookclub: true).each do |chatroom| %>
-    <% if user_signed_in? %>
-      <li><%= chatroom.book.title%> : <%= chatroom.name %> | <%= link_to "Join", chatroom_path(chatroom)  %></li>
-    <% else %>
-      <li><%= chatroom.book.title%> : <%= chatroom.name %> | <%= link_to "Join", new_user_session_path %></li>
+
+    <% @chatrooms.where(bookclub: true).each do |chatroom| %>
+      <% if user_signed_in? %>
+        <div class="list-bookclub">
+          <p><strong><%= chatroom.book.title%></strong> : <%= chatroom.name %>  <%= link_to "Join", chatroom_path(chatroom), class:"button-very-small-secondary-red", id:"btn-list-club" %></p>
+        </div>
+      <% else %>
+        <div class="list-bookclub">
+          <p><strong><%= chatroom.book.title%></strong> : <%= chatroom.name %>  <%= link_to "Join", new_user_session_path, class:"button-very-small-secondary-red", id:"btn-list-club"  %></p>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+
+</div>

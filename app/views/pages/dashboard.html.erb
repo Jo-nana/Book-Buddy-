@@ -74,7 +74,7 @@
 
             <% @owner_bookings.each do |booking| %>
             <% if booking.accepted === nil %>
-              <p id="request-text"><%= booking.book.title %> <button type="button" class="button-very-small-secondary-red" id="openModal-<%= booking.id %>">Request</button>
+              <p id="request-text"><%= booking.book.title %> | From <%= booking.start_date.to_formatted_s(:short)   %> to <%= booking.end_date.to_formatted_s(:short)   %> <button type="button" class="button-very-small-secondary-red" id="openModal-<%= booking.id %>">Request</button>
               </p>
 
             <% end %>
@@ -94,7 +94,7 @@
                     <% booking.user.books.each do |book| %>
                       <% if book.availability %>
                         <div class="form-check">
-                          <%= book.title %> | <%= book.author %> | <%= link_to "Swap", swap_path(book.id, booking_id: booking.id), method: :patch %>
+                          <strong><%= link_to book.title, book_path(book), class:"green-link" %></strong> | <%= book.author %> | <%= link_to "Swap", swap_path(book.id, booking_id: booking.id), method: :patch, class:"icon-red" %>
                         </div>
                       <% end %>
                     <% end %>
@@ -124,6 +124,7 @@
                 <% end %>
           <% end %>
         <% end %>
+
       </div>
           <%#= link_to "Request", accept_path(booking.book, booking), method: :patch %>
         <div class="inline-string"></div>
