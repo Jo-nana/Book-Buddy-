@@ -9,12 +9,12 @@
   max-height: 100vh;
 }
 .gc-pic { grid-area: 3 / 5 / 10 / 8; }
-.gc-welcome { grid-area: 4 / 3 / 5 / 6;
+.gc-welcome { grid-area: 4 / 3 / 5 / 7;
   color: $white;
-  text-align: center;
+  text-align: left;
   border-radius: 4px;
   position: relative;
-  right: 0.5rem;
+  left: 0.25rem;
 }
 .gc-slogan { grid-area: 9 / 6 / 10 / 10;
   text-align: center;
@@ -38,8 +38,14 @@
   backdrop-filter: blur(5.1px);
   -webkit-backdrop-filter: blur(5.1px);
 }
-.gc-btn { grid-area: 7 / 3 / 7 / 4; }
-.gc-btn2 { grid-area: 7 / 4 / 7 / 5; }
+.gc-btn { grid-area: 6 / 3 / 7 / 6;
+position: relative;
+top: 1.75rem;
+}
+.gc-btn2 { grid-area: 6 / 4 / 6 / 5;
+position: relative;
+top: 1.75rem;
+}
 .gc-scroll { grid-area: 11 / 2 / 11 / 5;
   text-align: center;
   color: $white;
