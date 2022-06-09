@@ -4,8 +4,11 @@
 
     <% @chatrooms.where(bookclub: true).each do |chatroom| %>
       <% if user_signed_in? %>
-        <div class="list-bookclub">
-          <p><strong><%= chatroom.book.title%></strong> : <%= chatroom.name %>  <%= link_to "Join", chatroom_path(chatroom), class:"button-very-small-secondary-red", id:"btn-list-club" %></p>
+        <div class="list-bookclub d-flex justify-content-between w-50">
+            <p>
+              <strong><%= chatroom.book.title%></strong> : <%= chatroom.name %>
+            </p>
+            <%= link_to "Join", chatroom_path(chatroom), class:"button-very-small-secondary-red", id:"btn-list-club" %>
         </div>
       <% else %>
         <div class="list-bookclub">

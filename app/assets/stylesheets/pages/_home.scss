@@ -78,10 +78,17 @@ top: 1.75rem;
   border-radius: 4px;
   opacity: 0.5;
   transition: 300ms;
+  cursor: pointer;
   &:hover {
     opacity: 1;
     a {
       color: $black;
     }
+  }
+}
+
+#icon-refresh {
+  a {
+    color: $white !important;
   }
 }
