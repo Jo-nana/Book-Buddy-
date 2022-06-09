@@ -65,9 +65,10 @@
 .icon-container {
   justify-content: center;
   align-items: center;
+  color: $white !important;
   margin: 1rem 0 1rem 1rem;
   padding: 10px 10px;
-  background-color: lightgray;
+  background-color: $orange-red;
   border-radius: 4px;
   opacity: 0.5;
   transition: 300ms;
@@ -77,4 +78,8 @@
       color: $black;
     }
   }
+}
+
+.feather{
+   color: $white !important;
 }

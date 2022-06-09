@@ -42,7 +42,9 @@
                 <%= f.input :tags,
                             required: true,
                             autofocus: true,
-                            collection: ["Horror", "S-F", "Distopia", "Classic", "Adventure", "Fantasy"], as: :check_boxes, class: "d-flex"%>
+                            collection: ["Horror", "S-F", "Distopia", "Classic", "Adventure", "Fantasy"], as: :check_boxes,
+                            input_html: { class: "tag-selector" },
+                            item_wrapper_class: 'tag-item'%>
                 <div class="row">
                   <div class="col-6 mb-1">
                     <%= f.input :password,
