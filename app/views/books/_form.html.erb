@@ -1,52 +1,58 @@
-  <%= simple_form_for(book) do |book| %>
 
-      <div class="row">
-        <div class="form-inputs" class="col-12 col-md-6 col-lg-4">
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-4 w-50">
+    <div class="form-book">
+      <%= simple_form_for(book) do |book| %>
           <div class="row">
-            <div class="col-6 mb-1">
-              <%= book.input :title,
-                          autofocus: true,
-                          input_html: { class:"style-input" },
-                          label_html: { class: "label-form" } %>
-            </div>
-            <div class="col-6 mb-1">
-              <%= book.input :author,
-                          autofocus: true,
-                          input_html: { class:"style-input" },
-                          label_html: { class: "label-form" } %>
-            </div>
-          </div>
-            <div class="col-12 mb-1">
-              <%= book.input :description,
-                          autofocus: true,
-                          input_html: { class:"style-input" },
-                          label_html: { class: "label-form" } %>
-            </div>
-          <div class="row">
-            <div class="col-6 mb-1">
-              <%= book.input :year,
-                          autofocus: true,
-                          input_html: { class:"style-input" },
-                          label_html: { class: "label-form" } %>
-            </div>
-            <div class="col-6 mb-1">
-              <%= book.input :photo,
-                          as: :file,
-                          required: true,
-                          input_html: { class:"style-input" },
-                          label_html: { class: "label-form" } %>
-            </div>
-          </div>
-          <div class="col-12 mb-1">
-              <%= book.input :tags,
+            <div class="form-inputs" class="col-12 col-md-6 col-lg-4">
+              <div class="row">
+                <div class="col-6 mb-1">
+                  <%= book.input :title,
+                              autofocus: true,
+                              input_html: { class:"style-input" },
+                              label_html: { class: "label-form" } %>
+                </div>
+                <div class="col-6 mb-1">
+                  <%= book.input :author,
+                              autofocus: true,
+                              input_html: { class:"style-input" },
+                              label_html: { class: "label-form" } %>
+                </div>
+              </div>
+                <div class="col-12 mb-1">
+                  <%= book.input :description,
+                              autofocus: true,
+                              input_html: { class:"style-input" },
+                              label_html: { class: "label-form" } %>
+                </div>
+              <div class="row">
+                <div class="col-6 mb-1">
+                  <%= book.input :year,
+                              autofocus: true,
+                              input_html: { class:"style-input" },
+                              label_html: { class: "label-form" } %>
+                </div>
+                <div class="col-6 mb-1">
+                  <%= book.input :photo,
+                              as: :file,
+                              required: true,
+                              input_html: { class:"style-input" },
+                              label_html: { class: "label-form" } %>
+                </div>
+              </div>
+              <div class="col-12 mb-1">
+                  <%= book.input :tags,
 
-                            autofocus: true,
-                            collection: ["Horror", "S-F", "Distopia", "Classic", "Adventure", "Fantasy"], as: :check_boxes, class: "d-flex"%>
+                                autofocus: true,
+                                collection: ["Horror", "S-F", "Distopia", "Classic", "Adventure", "Fantasy"], as: :check_boxes, class: "d-flex"%>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-        <div class="form-actions">
-          <%= book.button :submit, "Add", class: 'button-form' %>
-        </div>
-    <% end %>
+            <div class="form-actions">
+              <%= book.button :submit, "Add", class: 'btn-form' %>
+            </div>
+      <% end %>
+    </div>
+  </div>
+</div>

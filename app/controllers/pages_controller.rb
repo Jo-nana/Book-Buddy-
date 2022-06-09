@@ -22,5 +22,21 @@ class PagesController < ApplicationController
     @owner_pending_bookings = (@owner_bookings.select do |booking|
       booking.accepted == false
     end)
+
+
+    @pending_bookings = []
+    @user.books.each do |book|
+      unless book.bookings.empty?
+        book.bookings.each do |booking|
+          @pending_bookings << booking if booking.accepted === nil
+        end
+      end
+    end
+  end
+
+  def cancel_booking
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: false)
+    redirect_to dashboard_url, notice: 'Booking was cancelled.'
   end
 end

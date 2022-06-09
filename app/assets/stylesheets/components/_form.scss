@@ -21,6 +21,29 @@
   }
 }
 
+.form-book {
+  padding: 10px 20px;
+  margin-top: 50px;
+  overflow: hidden;
+  background: $white;
+  color: $dark-green;
+  border: 1px solid $dark-green;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: $dark-green 4px 4px 0 0, $dark-green 4px 4px 0 1px;
+  h1 {
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  .btn-form {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: $dark-green;
+    color: white;
+  }
+}
+
 .hint-font {
   font-size: 12px;
 }
