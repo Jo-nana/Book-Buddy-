@@ -116,11 +116,13 @@
         <% if @user.bookings.pluck(:book_id).empty? %>
           <p>You are not borrowing books currently.</p>
         <% else %>
-          <%# if @booking.accepted %>
-            <% Book.where(id: @user.bookings.pluck(:book_id)).each do |book| %>
-              <p><%= book.title %> | <%= book.author %> <br> Owner: <strong><%= book.user.username %></strong></p>
-              <% end %>
-          <%# end %>
+          <% @user.bookings.each do |booking| %>
+            <% if booking.accepted %>
+              <% Book.where(id: @user.bookings.pluck(:book_id)).each do |book| %>
+                <p><%= book.title %> | <%= book.author %> <br> Owner: <strong><%= book.user.username %></strong></p>
+                <% end %>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
           <%#= link_to "Request", accept_path(booking.book, booking), method: :patch %>
