@@ -1,0 +1,4 @@
+meta_product_name: "Book Buddy"
+meta_title: "Book Buddy - Share your books, be eco-friendly, make new buddies."
+meta_description: "Lend, borrow or swap a book with someone near from you/"
+meta_image: "cover.png" # should exist in `app/assets/images/`
