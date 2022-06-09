@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
     @booking.save
     @booking.book.change_availability_to_false
     chat = Chatroom.create!(user: @booking.user, book: @booking.book, name: " #  #{rand(1..100).to_s}", bookclub: false)
+    Message.create!(content: "Thanks for accepting my request", chatroom: chat, user: @booking.user)
     redirect_to chatroom_path(chat), notice: "Request accepted!"
   end
 
@@ -39,7 +40,9 @@ class BookingsController < ApplicationController
     @booking_one.user = current_user
     @booking_one.save!
     @booking_one.book.change_availability_to_false
-    redirect_to dashboard_path, notice: "It's a swap!"
+    chat = Chatroom.create!(user: @booking.user, book: @booking.book, name: " #  #{rand(1..100).to_s}", bookclub: false)
+    Message.create!(content: "Thanks for accepting the swap!", chatroom: chat, user: @booking.user)
+    redirect_to chatroom_path(chat), notice: "It's a swap!"
   end
 
 
