@@ -132,15 +132,15 @@
         <h2>My bookclub(s)</h2>
 
         <% @user.chatrooms.where(bookclub: true).last(3).each do |chatroom| %>
-
-          <p> <strong><%= chatroom.book.title %>:</strong> <%= chatroom.name %>
-          <%= link_to chatroom_path(chatroom), class:"icon-red" do %>
-            <i class="fa-solid fa-arrow-right-long"></i>
-          <% end %>
-          </p>
+            <p> <strong><%= chatroom.book.title %>:</strong> <%= chatroom.name %>
+            <%= link_to chatroom_path(chatroom), class:"icon-red" do %>
+              <i class="fa-solid fa-arrow-right-long"></i>
+            <% end %>
+            </p>
         <% end %>
-
-        <h3><%= link_to "All bookclubs", chatrooms_path, class:"icon-red" %></h3>
+        <div class="text-bubble-personal-card">
+          <%= link_to "All bookclubs", chatrooms_path %>
+        </div>
       </div>
       <div class="inline-string"></div>
 
@@ -148,7 +148,7 @@
       <div class="text-bloc">
         <h2>My chat(s)</h2>
         <% @user.chatrooms.where(bookclub: false).last(3).each do |chatroom| %>
-          <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom), class:"icon-red" %></li>
+          <p> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom), class:"icon-red" %></p>
         <% end %>
       </div>
     </div>

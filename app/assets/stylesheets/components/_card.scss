@@ -180,16 +180,16 @@ h4{
   // dashboard
   #user-profile-card{
     overflow: hidden;
-    background: $white;
-    color: $dark-green;
-    border: 1px solid $orange-red;
+    background: $dark-green;
+    color: $white;
+    // border: 1px solid $orange-red;
     display: flex;
     flex-direction: column;
-    border-radius: 4px;
-    box-shadow: $orange-red 4px 4px 0 0, $orange-red 4px 4px 0 1px;
+    border-radius: 4px 4px 0 0;
+    // box-shadow: $orange-red 4px 4px 0 0, $orange-red 4px 4px 0 1px;
     justify-content: center;
     align-items: center;
-    padding: 8px;
+    padding: 12px 8px;
     margin-bottom: 24px;
 
     h2{
@@ -220,11 +220,11 @@ h4{
       margin-bottom: 12px;
 
       .tags{
-        margin-right: 8px;
-        background-color: $dark-green !important;
+        margin: 0 4px 0 4px;
+        background-color: $white !important;
         padding: 4px 8px;
         border-radius: 8px;
-        color: $white;
+        color: $dark-green;
         font-weight: 200 !important;
       }
 
