@@ -28,7 +28,7 @@
                 <%= link_to book_path(book),
                     method: :delete,
                     data: { confirm: "Are you sure?" } do %>
-                      <i class="fa-solid fa-trash"></i>
+                      <i class="fa-solid fa-trash" id="trash"></i>
                     <% end %>
 
                 <%= link_to edit_book_path(book) do %>
@@ -58,7 +58,7 @@
       </div>
       <div class="text-bloc">
         <h2> Add a new book
-          <%= link_to new_book_path do %>
+          <%= link_to new_book_path, class:"icon-red" do %>
             <i class="fa-solid fa-circle-plus"></i>
           <% end %>
         </h2>
@@ -101,7 +101,7 @@
 
                   <div class="modal-footer">
                     <button type="button" id="closeModal-<%= booking.id %>" class="btn-request-library button-secondary-small-green">Close</button>
-                    <%= link_to "Accept without swap", accept_path(booking.id), method: :patch, class:"btn-request-library button-primary-small-green" %>
+                    <%= link_to "Accept without swap", accept_path(booking.id), method: :patch, class:"btn-request-library button-primary-small-green link-white" %>
                     <%# <button type="button" class="btn-request-library button-primary-small-red">Decline</button> %>
                     <%= link_to "Decline", cancel_path(booking), class: "btn-request-library button-primary-small-red" %>
                   </div>
@@ -129,13 +129,13 @@
 
         <% @user.chatrooms.where(bookclub: true).last(3).each do |chatroom| %>
           <p> <strong><%= chatroom.book.title %>:</strong> <%= chatroom.name %>
-          <%= link_to chatroom_path(chatroom) do %>
+          <%= link_to chatroom_path(chatroom), class:"icon-red" do %>
             <i class="fa-solid fa-arrow-right-long"></i>
           <% end %>
           </p>
         <% end %>
 
-        <h3><%= link_to "All bookclubs", chatrooms_path %></h3>
+        <h3><%= link_to "All bookclubs", chatrooms_path, class:"icon-red" %></h3>
       </div>
       <div class="inline-string"></div>
 
@@ -143,9 +143,9 @@
       <div class="text-bloc">
         <h2>My chat(s)</h2>
         <% @user.chatrooms.where(bookclub: false).last(3).each do |chatroom| %>
-          <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom) %></li>
+          <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom), class:"icon-red" %></li>
         <% end %>
-        <h3><%= link_to "All chatrooms", chatrooms_path %></h3>
+        <h3><%= link_to "All chatrooms", chatrooms_path, class:"icon-red" %></h3>
       </div>
     </div>
   </div>

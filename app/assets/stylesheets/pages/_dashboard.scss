@@ -2,6 +2,8 @@
   text-align: center;
   margin: 22px 0;
 
+
+
   #request-text{
     margin: 12px 0;
   }
@@ -14,12 +16,19 @@
   }
 
 
+  .icon-red:hover, .icon-red:focus{
+    color: $orange-red !important;
+    opacity: 0.7;
+
+  }
+
+  .link-white:hover, .link-white:focus{
+    color: $white !important;
+
+  }
   .fa-circle-plus{
     font-size: 20px;
     margin-top: 12px;
-    &hover{
-      color: $dark-green !important;
-    }
   }
   .fa-arrow-right-long{
     font-size: 18px;
@@ -50,6 +59,7 @@
 .icons {
   font-size: 18px;
   text-align: right;
+
   .available{
     color: $dark-green;
     position: relative;
@@ -74,6 +84,11 @@
   .not-available{
     color: $orange-red;
   }
+
+  a:hover, a:focus{
+    color: $orange-red !important;
+    opacity: 0.7;
+    }
 
 }
 
