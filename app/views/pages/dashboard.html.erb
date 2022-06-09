@@ -118,12 +118,10 @@
         <% if @user.bookings.pluck(:book_id).empty? %>
           <p>You are not borrowing books currently.</p>
         <% else %>
-          <% @user.bookings.each do |booking| %>
-            <% if booking.accepted %>
+          <% @user.bookings.where(accepted: true).each do |booking| %>
               <% Book.where(id: @user.bookings.pluck(:book_id)).each do |book| %>
                 <p><%= book.title %> | <%= book.author %> <br> Owner: <strong><%= book.user.username %></strong></p>
                 <% end %>
-            <% end %>
           <% end %>
         <% end %>
 
