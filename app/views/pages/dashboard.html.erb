@@ -125,7 +125,7 @@
           <%#= link_to "Request", accept_path(booking.book, booking), method: :patch %>
         <div class="inline-string"></div>
       <div class="text-bloc">
-        <h2>My bookclub</h2>
+        <h2>My bookclub(s)</h2>
 
         <% @user.chatrooms.where(bookclub: true).last(3).each do |chatroom| %>
           <p> <strong><%= chatroom.book.title %>:</strong> <%= chatroom.name %>
@@ -141,11 +141,11 @@
 
         <%# individual chats  %>
       <div class="text-bloc">
-        <h2>My chats</h2>
+        <h2>My chat(s)</h2>
         <% @user.chatrooms.where(bookclub: false).last(3).each do |chatroom| %>
           <li> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom) %></li>
         <% end %>
-        <%= link_to "All chatrooms", chatrooms_path %>
+        <h3><%= link_to "All chatrooms", chatrooms_path %></h3>
       </div>
     </div>
   </div>

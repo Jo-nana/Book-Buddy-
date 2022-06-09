@@ -1,7 +1,7 @@
 
 <div class="row justify-content-center">
   <div class="col-12 col-sm-4 w-50">
-    <div class="form-book">
+    <div class="form-login-register">
       <%= simple_form_for(book) do |book| %>
           <div class="row">
             <div class="form-inputs" class="col-12 col-md-6 col-lg-4">
@@ -42,9 +42,10 @@
               </div>
               <div class="col-12 mb-1">
                   <%= book.input :tags,
-
                                 autofocus: true,
-                                collection: ["Horror", "S-F", "Distopia", "Classic", "Adventure", "Fantasy"], as: :check_boxes, class: "d-flex"%>
+                                collection: ["Horror", "S-F", "Distopia", "Classic", "Adventure", "Fantasy"], as: :check_boxes,
+                                input_html: { class: "tag-selector" },
+                                item_wrapper_class: 'tag-item'%>
               </div>
             </div>
           </div>
