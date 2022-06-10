@@ -40,30 +40,30 @@ Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse 
 b1984 = Book.create!(title: "1984", author: "George Orwell", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
 Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "S-F"],
-            picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: michel)
+            picture: "https://images-na.ssl-images-amazon.com/images/I/81StSOpmkjL.jpg", availability: true, user: johanna)
 tintin = Book.create!(title: "Tintin et les Picaros", author: "Hergé", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
-Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "S-F"],
-            picture: "https://images-na.ssl-images-amazon.com/images/I/A1+NsLtA-bL.jpg", availability: true, user: michel)
+Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Adventure", "S-F"],
+            picture: "https://images-na.ssl-images-amazon.com/images/I/A1+NsLtA-bL.jpg", availability: true, user: freddy)
 Book.create!(title: "Spiderman, Green golbin returns", author: "Stan Lee, Steve Ditko", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
-Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "S-F"],
-            picture: "https://m.media-amazon.com/images/I/51OmYlenCEL.jpg", availability: true, user: micheline)
+Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Fantasy", "Adventure"],
+            picture: "https://m.media-amazon.com/images/I/51OmYlenCEL.jpg", availability: true, user: johanna)
 Book.create!(title: "Game of thrones", author: "G.R.R Martin", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
 Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "S-F"],
             picture: "https://media.s-bol.com/g6xZXD4z5XvZ/1rgWXmj/769x1200.jpg", availability: true, user: micheline)
 Book.create!(title: "Animal Farm", author: "George Orwell", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
-Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "S-F"],
+Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Adventure", "Fantasy"],
             picture: "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781839642395/animal-farm-9781839642395_hr.jpg", availability: true, user: micheline)
 Book.create!(title: "Harry Potter and the philosopher stone", author: "J.K Rowling", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
-Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "S-F"],
+Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Fantasy", "Adventure"],
             picture: "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9781526626585.jpg", availability: true, user: freddy)
 Book.create!(title: "Le Paris des merveilles", author: "Pierre Pevel", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
-Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "S-F"],
+Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Classic", "Adventure"],
             picture: "https://images-na.ssl-images-amazon.com/images/I/91Dmaung4xL.jpg", availability: true, user: freddy)
 Book.create!(title: "Hamlet", author: "William Shakespeare", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
@@ -71,19 +71,19 @@ Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse 
             picture: "https://kbimages1-a.akamaihd.net/695eb39e-9405-4c4b-8267-302344f0f5f7/1200/1200/False/hamlet-15.jpg", availability: true, user: freddy)
 Book.create!(title: "Coding for dummies", author: "Nikhil Abraham", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
-Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "S-F"],
+Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "Fantasy"],
             picture: "https://images-na.ssl-images-amazon.com/images/I/51q-YHB62GL.jpg", availability: true, user: johanna)
 Book.create!(title: "Berserk Vol.41", author: "Kentaro Miura", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
-Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "S-F"],
+Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Fantasy", "Horror"],
             picture: "https://image.jeuxvideo.com/medias-sm/164037/1640365560-6919-artwork.png", availability: true, user: johanna)
 Book.create!(title: "The Witcher: The last wish", author: "Andrzej Sapkowski", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
-Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "S-F"],
+Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Fantasy", "Adventure"],
             picture: "https://pbs.twimg.com/media/E535iZIWYAEY1DD?format=jpg&name=medium", availability: true, user: michel)
 Book.create!(title: "World of Warcraft: Sylvanas", author: "Christie Golden", description: "Lorem ipsum dolor sit amet. Est nihil perferendis sed quibusdam atque qui nihil velit aut officia sunt At architecto tempore sed placeat consectetur. Sit illum blanditiis nam pariatur esse et eligendi voluptas et eius harum sed consectetur aliquid rem voluptas rerum. Ea aliquam consectetur quo voluptas quos aut quia alias et quia autem At corrupti consequuntur est autem aliquam.
 
-Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Distopia", "S-F"],
+Sed cumque illo est laboriosam doloremque vel assumenda atque et quibusdam esse est consequatur accusamus et natus reiciendis?", year: 2008, tags: ["Fatansy", "Classic"],
             picture: "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/bc/BC3WS615K3AJ1619022587558.jpg", availability: true, user: johanna)
 puts "Creating chatroom (bookclubs)...🗣🗣🗣🗣"
 
