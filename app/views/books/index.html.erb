@@ -53,45 +53,47 @@
   </div>
 <% end %>
 
-
-<%# actual index page %>
-
-
+<!--Index page with books-->
 <%= render 'shared/navbar', navbar_class: '' %>
 <div class="container pt-3">
-  <h1>Available books</h1>
-  <div style="display: none;" class="remove-landing"><%= @dissapear %></div>
+  <h1> Available books </h1>
+  <div style="display: none;" class="remove-landing">
+    <%= @dissapear %>
+  </div>
 
- <%# Search bar %>
+  <!--Search bar-->
   <div data-controller="search-books">
-        <%= form_tag root_path, method: :get, class:"d-flex m-auto width-search", data: { search_books_target: 'form' } do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "searchbar-input",
-            placeholder: "Find a book",
-            data: { search_books_target: 'input', action: 'keyup->search-books#update' }
-          %>
-          <%= hidden_field_tag :dissapear, "true" %>
-          <%= button_tag type: "submit", class: "style-searchbar-button" do %>
-            <i data-feather="search"></i>
-          <% end %>
-          <div class="icons-show icon-container" id="icon-refresh" >
-            <%= link_to root_path(dissapear: "true") do %>
-              <i data-feather="rotate-ccw" class="feather"></i>
-            <% end %>
-          </div>
+    <%= form_tag root_path, method: :get, class:"d-flex m-auto width-search", data: { search_books_target: 'form' } do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "searchbar-input",
+        placeholder: "Find a book",
+        data: { search_books_target: 'input', action: 'keyup->search-books#update' }
+      %>
+      <%= hidden_field_tag :dissapear, "true" %>
+      <!--Search icon-->
+      <%= button_tag type: "submit", class: "style-searchbar-button" do %>
+        <i data-feather="search"></i>
+      <% end %>
+      <!-- Refresh icon-->
+      <div class="icons-show icon-container" id="icon-refresh" >
+        <%= link_to root_path(dissapear: "true") do %>
+          <i data-feather="rotate-ccw" class="feather"></i>
         <% end %>
-    <%# Tags %>
+      </div>
+    <% end %>
+    <!--Tags filters-->
     <div class="tags-container">
       <% @tags.each do |tag| %>
           <%= link_to tag, root_path(tag: tag, dissapear: "true"), class: "tags-bubble" %>
       <% end %>
     </div>
 
-    <%# Displaying the books %>
+    <!--Books display-->
     <div data-search-books-target="list" style="min-height: 100vh">
-      <%= render "list", user: current_user%>
+      <%= render "list", user: current_user %>
     </div>
   </div>
 </div>
+<!--Footer-->
 <%= render 'shared/footer' %>
