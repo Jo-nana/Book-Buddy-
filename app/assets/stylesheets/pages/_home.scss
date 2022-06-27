@@ -49,6 +49,10 @@ top: 1.75rem;
 .gc-scroll { grid-area: 11 / 2 / 11 / 5;
   text-align: center;
   color: $white;
+  font-family: $button-font;
+  font-weight: 100;
+  font-size: 18px;
+  letter-spacing: 2px;
   &:hover {
     text-decoration: none;
     cursor: pointer;
