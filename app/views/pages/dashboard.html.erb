@@ -150,7 +150,7 @@
       <div class="text-bloc">
         <h2> My chat(s) </h2>
         <% @user.chatrooms.where(bookclub: false).last(3).each do |chatroom| %>
-          <p> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom), class:"icon-red" %></p>
+          <p> <%= chatroom.book.title %>: <%= chatroom.name %> | <%= link_to "Go", chatroom_path(chatroom), class:"icon-red" %> </p>
         <% end %>
       </div>
     </div>
