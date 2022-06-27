@@ -16,20 +16,16 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    # @book = Book.find(params[:book_id])
     @booking = Booking.find(params[:id])
     @booking.accepted = true
     @booking.save
     @booking.book.change_availability_to_false
-    chat = Chatroom.create!(user: @booking.user, book: @booking.book, name: " #  #{rand(1..100).to_s}", bookclub: false)
+    chat = Chatroom.create!(user: @booking.user, book: @booking.book, name: " #  #{rand(1..100)}", bookclub: false)
     Message.create!(content: "Thanks for accepting my request", chatroom: chat, user: @booking.user)
     redirect_to chatroom_path(chat), notice: "Request accepted!"
-    # chat = Chatroom.create!(user: @booking.user, book: @booking.book, name: @booking.book.user.first_name + " & " + current_user.first_name, bookclub: false)
-    # redirect_to chatroom_path(chat), notice: "Request accepted!"
   end
 
   def swap
-      # @book = Book.find(params[:book_id])
     @booking = Booking.find(params[:booking_id])
     @booking.accepted = true
     @booking.save!
@@ -41,12 +37,10 @@ class BookingsController < ApplicationController
     @booking_one.user = current_user
     @booking_one.save!
     @booking_one.book.change_availability_to_false
-    # redirect_to dashboard_path, notice: "It's a swap!"
-    chat = Chatroom.create!(user: @booking.user, book: @booking.book, name: " #  #{rand(1..100).to_s}", bookclub: false)
+    chat = Chatroom.create!(user: @booking.user, book: @booking.book, name: " #  #{rand(1..100)}", bookclub: false)
     Message.create!(content: "Thanks for accepting the swap!", chatroom: chat, user: @booking.user)
     redirect_to chatroom_path(chat), notice: "It's a swap!"
   end
-
 
   private
 

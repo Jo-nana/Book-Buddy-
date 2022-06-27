@@ -1,4 +1,3 @@
-
 <div class="row justify-content-center">
   <div class="col-12 col-sm-4 w-50">
     <div class="form-login-register">
@@ -41,15 +40,14 @@
                 </div>
               </div>
               <div class="col-12 mb-1">
-                  <%= book.input :tags,
-                                autofocus: true,
-                                collection: ["Horror", "S-F", "Distopia", "Classic", "Adventure", "Fantasy"], as: :check_boxes,
-                                input_html: { class: "tag-selector" },
-                                item_wrapper_class: 'tag-item'%>
+                <%= book.input :tags,
+                              autofocus: true,
+                              collection: ["Horror", "S-F", "Distopia", "Classic", "Adventure", "Fantasy"], as: :check_boxes,
+                              input_html: { class: "tag-selector" },
+                              item_wrapper_class: 'tag-item'%>
               </div>
             </div>
           </div>
-
             <div class="form-actions">
               <%= book.button :submit, "Add", class: 'btn-form' %>
             </div>

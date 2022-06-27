@@ -1,96 +1,99 @@
-<%# new homepage-code %>
+<!--Home page when user is signed in -->
 <% if user_signed_in?  %>
   <div class="grid-container">
     <div class="gc-pic">
       <%= image_tag("https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Ym9va3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60", class: "home-img") %>
     </div>
     <div class="gc-slogan">
-      <h2>Share your books, be eco-friendly, make new buddies.</h2>
+      <h2> Share your books, be eco-friendly, make new buddies. </h2>
     </div>
     <div class="gc-logo">
       <h1>Book Buddy.</h1>
     </div>
     <div class="gc-btn scroll-down">
-      <%= link_to root_path, class: "button-primary-small-red" do%>
-        <i>Explore</i>
+      <%= link_to root_path, class: "button-primary-small-red" do %>
+        <i> Explore </i>
       <% end %>
     </div>
     <div class="gc-btn2">
-      <%= link_to dashboard_path, class: "button-small-secondary-red" do%>
-        <i>Dashboard</i>
+      <%= link_to dashboard_path, class: "button-small-secondary-red" do %>
+        <i> Dashboard </i>
       <% end %>
     </div>
     <div class="gc-welcome">
-      <h1>Welcome back <%= @user.first_name %>!</h1> <%=  %>
+      <h1> Welcome back <%= @user.first_name %>!</h1>
     </div>
   </div>
 <% else %>
+  <!--Home page when user is not signed in -->
   <div class="grid-container">
     <div class="gc-pic">
       <%= image_tag("https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Ym9va3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60", class: "home-img") %>
     </div>
     <div class="gc-slogan">
-      <h2>Share your books, be eco-friendly, make new buddies.</h2>
+      <h2> Share your books, be eco-friendly, make new buddies. </h2>
     </div>
     <div class="gc-logo">
-      <h1>Book Buddy.</h1>
+      <h1> Book Buddy. </h1>
     </div>
     <div class="gc-btn">
-      <%= link_to new_user_registration_path, class: "button-primary-small-red" do%>
-        <i>Sign up</i>
+      <%= link_to new_user_registration_path, class: "button-primary-small-red" do %>
+        <i> Sign up </i>
       <% end %>
     </div>
     <div class="gc-btn2">
-      <%= link_to new_user_session_path, class: "button-small-secondary-red" do%>
-        <i>Log in</i>
+      <%= link_to new_user_session_path, class: "button-small-secondary-red" do %>
+        <i> Log in </i>
       <% end %>
     </div>
     <div class="gc-welcome">
-      <h1>Welcome to</h1>
+      <h1> Welcome to </h1>
     </div>
-    <div class="gc-scroll scroll-down">Click here to explore.</div>
+    <div class="gc-scroll scroll-down"> Click here to explore. </div>
   </div>
 <% end %>
 
-
-<%# actual index page %>
-
-
+<!--Index page with books-->
 <%= render 'shared/navbar', navbar_class: '' %>
 <div class="container pt-3">
-  <h1>Available books</h1>
-  <div style="display: none;" class="remove-landing"><%= @dissapear %></div>
+  <h1> Available books </h1>
+  <div style="display: none;" class="remove-landing">
+    <%= @dissapear %>
+  </div>
 
- <%# Search bar %>
+  <!--Search bar-->
   <div data-controller="search-books">
-        <%= form_tag root_path, method: :get, class:"d-flex m-auto width-search", data: { search_books_target: 'form' } do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "searchbar-input",
-            placeholder: "Find a book",
-            data: { search_books_target: 'input', action: 'keyup->search-books#update' }
-          %>
-          <%= hidden_field_tag :dissapear, "true" %>
-          <%= button_tag type: "submit", class: "style-searchbar-button" do %>
-            <i data-feather="search"></i>
-          <% end %>
-          <div class="icons-show icon-container" id="icon-refresh" >
-            <%= link_to root_path(dissapear: "true") do %>
-              <i data-feather="rotate-ccw" class="feather"></i>
-            <% end %>
-          </div>
+    <%= form_tag root_path, method: :get, class:"d-flex m-auto width-search", data: { search_books_target: 'form' } do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "searchbar-input",
+        placeholder: "Find a book",
+        data: { search_books_target: 'input', action: 'keyup->search-books#update' }
+      %>
+      <%= hidden_field_tag :dissapear, "true" %>
+      <!--Search icon-->
+      <%= button_tag type: "submit", class: "style-searchbar-button" do %>
+        <i data-feather="search"></i>
+      <% end %>
+      <!-- Refresh icon-->
+      <div class="icons-show icon-container" id="icon-refresh" >
+        <%= link_to root_path(dissapear: "true") do %>
+          <i data-feather="rotate-ccw" class="feather"></i>
         <% end %>
-    <%# Tags %>
+      </div>
+    <% end %>
+    <!--Tags filters-->
     <div class="tags-container">
       <% @tags.each do |tag| %>
           <%= link_to tag, root_path(tag: tag, dissapear: "true"), class: "tags-bubble" %>
       <% end %>
     </div>
 
-    <%# Displaying the books %>
+    <!--Books display-->
     <div data-search-books-target="list" style="min-height: 100vh">
-      <%= render "list", user: current_user%>
+      <%= render "list", user: current_user %>
     </div>
   </div>
 </div>
+<!--Footer-->
 <%= render 'shared/footer' %>
