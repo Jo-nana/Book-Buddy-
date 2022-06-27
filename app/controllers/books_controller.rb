@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :set_books, only: [:show, :edit, :update, :destroy]
+
   def index
     @dissapear = params[:dissapear] if params[:dissapear].present?
     @books = Book.all
@@ -19,7 +21,6 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
     @chatrooms = Chatroom.all
     @books_tag = Book.where("tags @> ARRAY[?]::varchar[]", [@book.tags[0].to_s, @book.tags[1].to_s])
 
@@ -54,11 +55,9 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to dashboard_path, notice: 'Book was successfully updated.'
     else
@@ -67,9 +66,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id])
     @book.destroy
-
     redirect_to dashboard_url, notice: 'Book was successfully destroyed.'
   end
 
@@ -77,5 +74,9 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :author, :description, :year, :photo, :tags)
+  end
+
+  def set_books
+    @book = Book.find(params[:id])
   end
 end
