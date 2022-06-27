@@ -77,7 +77,7 @@
   </div>
 
   <div class="divider"></div>
-  <!--Recommandations book part-->
+  <!--Recommendations book part-->
   <h2>You might also like</h2>
   <div class="results-container">
     <!--If user is signed in-->
@@ -99,7 +99,7 @@
                   <p> <%= b.author %> </p>
                   <p> <%= b.year %> </p>
                   <div class="card-price-km-rec">
-                    <!-- Book's tags and geolocalisation--->
+                    <!-- Book's tags and geolocalisation distance--->
                     <h3>
                       <% b.tags.each do |tag| %>
                         <%= tag %>
@@ -119,19 +119,20 @@
         <% @books_tag.where(availability: true).first(3).each do |b| %>
           <% if b.title != @book.title %>
             <%= link_to book_path(b) do %>
+              <!-- Books cards--->
               <div class="card-product-rec">
                 <%= image_tag b.picture %>
                 <div class="card-product-infos-rec">
-                  <div>
-                    <% if b.title.length > 30 %>
-                      <%= b.title[0..30]... %></h2>
-                    <% else %>
-                      <%= b.title %></h2>
-                    <% end %>
-                    <p><%= b.author %></p>
-                    <p><%= b.year %></p>
-                  </div>
+                  <!-- Book's info--->
+                  <% if b.title.length > 30 %>
+                    <%= b.title[0..30]... %>
+                  <% else %>
+                    <%= b.title %>
+                  <% end %>
+                  <p> <%= b.author %> </p>
+                  <p> <%= b.year %> </p>
                   <div class="card-price-km-rec">
+                    <!-- Book's tags (no geolocalisation distance when use is not signed in)--->
                     <h3>
                       <% b.tags.each do |tag| %>
                           <%= tag %>
