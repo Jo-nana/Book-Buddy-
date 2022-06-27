@@ -1,216 +1,149 @@
 <div class="container pt-3">
-  <% if user_signed_in? %>
-    <div class="icons-show" >
-      <%= link_to root_path(dissapear: "true") do %>
-        <i data-feather="arrow-left"></i>
-      <% end %>
+  <div class="icons-show">
+    <%= link_to root_path(dissapear: "true") do %>
+      <i data-feather="arrow-left"></i>
+    <% end %>
+  </div>
+  <div class="bg-container-show">
+    <!--book's info-->
+    <div class="header-container-show">
+      <h1><%= @book.title %></h1>
+      <p> Owner: <%= @book.user.username %></p>
     </div>
-    <div class="bg-container-show">
-      <div class="header-container-show">
-        <h1><%= @book.title %></h1>
-        <p>Owner: <%= @book.user.username %></p>
-      </div>
-      <div class="container-show">
-        <div class="show-column-1">
-          <div class="author-show">
-            <h2><%= @book.author %></h2>
-          </div>
-          <div class="book-show-desc">
-            <p><%= @book.description %></p>
-              <div class="button-show">
-                <% if user_signed_in? %>
-                  <button class="button-secondary" style="">
-                    <%= link_to "Borrow Book", new_book_booking_path(@book) %>
-                  </button>
-                <% else %>
-                  <%= link_to "Borrow Book", new_user_session_path, class: "button-secondary", book: @book %>
-                <% end %>
-              </div>
-          </div>
+    <div class="container-show">
+      <div class="show-column-1">
+        <div class="author-show">
+          <h2><%= @book.author %></h2>
         </div>
-        <div class="container-show-img show-column-2">
-          <%= cl_image_tag @book.photo.key, height: 528, crop: "fill" %>
-        <%# https://res.cloudinary.com/djsobhceg/image/upload/e_improve,w_300,h_600,c_thumb,g_auto/v1653483075/ta6cb6z4z6qi1diche04.jpg %>
-        </div>
-        <div class="show-column-3">
-          <div>
-          <h2>Bookclubs</h2>
-            <div class="bookclub-show">
-            <% @book.chatroom.where(bookclub: true).last(3).each do |chatroom| %>
-              <div class="bookclub-show-link">
-                <% if user_signed_in? %>
-                  <%= link_to chatroom_path(chatroom), id: "chatroomTitle-#{chatroom.id}" do %>
-                    <%= @book.title %> : <%= chatroom.name %>
-                  <% end %>
-                <% else %>
-                  <%= link_to new_user_session_path, book: @book, id: "chatroomTitle-#{chatroom.id}" do %>
-                    <%= @book.title %> : <%= chatroom.name %>
-                  <% end %>
-                <% end %>
-                <% if user_signed_in? %>
-                  <%= link_to "Join", chatroom_path(chatroom), id: "chatJoinButton-#{chatroom.id}", class: "d-none"%>
-                <% else %>
-                  <%= link_to "Join", new_user_session_path, id: "chatJoinButton-#{chatroom.id}", class: "d-none"%>
-                <% end %>
-              </div>
-              <% end %>
-            </div>
-            <div class="icons-show">
-              <%= link_to "More Bookclubs", chatrooms_path %>
-              <%= link_to chatrooms_path do %>
-                <i data-feather="arrow-right"></i>
-              <% end %>
-            </div>
-          </div>
-          <div class="mapbox">
-            <div style="width: 100%; height: 200px;"
-                data-controller="mapbox"
-                data-mapbox-zoom-value="0"
-                data-mapbox-markers-value="<%= @markers.to_json %>"
-                data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-            </div>
+        <div class="book-show-desc">
+          <p> <%= @book.description %> </p>
+          <div class="button-show">
+            <!--booking button-->
+            <% if user_signed_in? %>
+              <button class="button-secondary" style="">
+                <%= link_to "Borrow Book", new_book_booking_path(@book) %>
+              </button>
+            <% else %>
+            <!--redirect to signed in form if not signed in-->
+              <%= link_to "Borrow Book", new_user_session_path, class: "button-secondary", book: @book %>
+            <% end %>
           </div>
         </div>
       </div>
+      <!--book's picutre-->
+      <div class="container-show-img show-column-2">
+        <%= cl_image_tag @book.photo.key, height: 528, crop: "fill" %>
+      </div>
+      <div class="show-column-3">
+        <!--Display booksclub related to the current book-->
+        <h2> Bookclubs </h2>
+        <div class="bookclub-show">
+          <% @book.chatroom.where(bookclub: true).last(3).each do |chatroom| %>
+            <div class="bookclub-show-link">
+              <% if user_signed_in? %>
+                <%= link_to chatroom_path(chatroom), id: "chatroomTitle-#{chatroom.id}" do %>
+                  <%= @book.title %> : <%= chatroom.name %>
+                <% end %>
+              <% else %>
+                <%= link_to new_user_session_path, book: @book, id: "chatroomTitle-#{chatroom.id}" do %>
+                  <%= @book.title %> : <%= chatroom.name %>
+                <% end %>
+              <% end %>
+              <% if user_signed_in? %>
+                <%= link_to "Join", chatroom_path(chatroom), id: "chatJoinButton-#{chatroom.id}", class: "d-none" %>
+              <% else %>
+                <%= link_to "Join", new_user_session_path, id: "chatJoinButton-#{chatroom.id}", class: "d-none" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div class="icons-show">
+          <%= link_to "More Bookclubs", chatrooms_path %>
+          <%= link_to chatrooms_path do %>
+            <i data-feather="arrow-right"></i>
+          <% end %>
+        </div>
+        <!--Mapbox, user's position-->
+        <div class="mapbox">
+          <div style="width: 100%; height: 200px;"
+              data-controller="mapbox"
+              data-mapbox-zoom-value="0"
+              data-mapbox-markers-value="<%= @markers.to_json %>"
+              data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="divider"></div>
-    <div>
-      <h2>Based on your tags, you might also like</h2>
-      <div class="results-container"></div>
+  </div>
+
+  <div class="divider"></div>
+  <!--Recommandations book part-->
+  <h2>You might also like</h2>
+  <div class="results-container">
+    <!--If user is signed in-->
+    <% if user_signed_in? %>
       <div class="cards-rec">
         <% @books_tag.where(availability: true).where.not(user_id: current_user.id).sample(3).each do |b| %>
-          <%= link_to book_path(b) do %>
-            <div class="card-product-rec">
-              <%= image_tag b.picture %>
-              <div class="card-product-infos-rec">
-                <div>
+          <% if b.title != @book.title %>
+            <%= link_to book_path(b) do %>
+              <!-- Books cards--->
+              <div class="card-product-rec">
+                <%= image_tag b.picture %>
+                <div class="card-product-infos-rec">
+                  <!-- Book's info--->
                   <% if b.title.length > 30 %>
-                    <%= b.title[0..30]... %></h2>
+                    <%= b.title[0..30]... %>
                   <% else %>
-                    <%= b.title %></h2>
+                    <%= b.title %>
                   <% end %>
-                  <p><%= b.author %></p>
-                  <p><%= b.year %></p>
-                </div>
-                <div class="card-price-km-rec">
-                  <h3><% b.tags.each do |tag| %>
+                  <p> <%= b.author %> </p>
+                  <p> <%= b.year %> </p>
+                  <div class="card-price-km-rec">
+                    <!-- Book's tags and geolocalisation--->
+                    <h3>
+                      <% b.tags.each do |tag| %>
                         <%= tag %>
                       <% end %>
-                  </h3>
-                    <%= ((Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude], [b.user.latitude, b.user.longitude]))*(1.60934)).round%>km
+                    </h3>
+                      <%= ((Geocoder::Calculations.distance_between([current_user.latitude, current_user.longitude], [b.user.latitude, b.user.longitude]))*(1.60934)).round%>km
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
-    </div>
-  <% else %>
-    <div class="icons-show" >
-      <%= link_to root_path(dissapear: "true") do %>
-        <i data-feather="arrow-left"></i>
-      <% end %>
-    </div>
-    <div class="bg-container-show">
-      <div class="header-container-show">
-        <h1><%= @book.title %></h1>
-        <p>Owner: <%= @book.user.username %></p>
-      </div>
-      <div class="container-show">
-        <div class="show-column-1">
-          <div class="author-show">
-            <h2><%= @book.author %></h2>
-          </div>
-
-          <div class="book-show-desc">
-            <p><%= @book.description %></p>
-              <div class="button-show">
-                <% if user_signed_in? %>
-                  <button class="button-secondary" style="">
-                    <%= link_to "Borrow Book", new_book_booking_path(@book) %>
-                  </button>
-                <% else %>
-                  <%= link_to "Borrow Book", new_user_session_path, class: "button-secondary", book: @book %>
-                <% end %>
-              </div>
-          </div>
-        </div>
-        <div class="container-show-img show-column-2">
-          <%= cl_image_tag @book.photo.key, height: 528, crop: "fill" %>
-        <%# https://res.cloudinary.com/djsobhceg/image/upload/e_improve,w_300,h_600,c_thumb,g_auto/v1653483075/ta6cb6z4z6qi1diche04.jpg %>
-        </div>
-        <div class="show-column-3">
-          <div>
-          <h2>Bookclubs</h2>
-            <div class="bookclub-show">
-            <% @book.chatroom.where(bookclub: true).last(3).each do |chatroom| %>
-              <div class="bookclub-show-link">
-                <% if user_signed_in? %>
-                  <%= link_to chatroom_path(chatroom), id: "chatroomTitle-#{chatroom.id}" do %>
-                    <%= @book.title %> : <%= chatroom.name %>
-                  <% end %>
-                <% else %>
-                  <%= link_to new_user_session_path, book: @book, id: "chatroomTitle-#{chatroom.id}" do %>
-                    <%= @book.title %> : <%= chatroom.name %>
-                  <% end %>
-                <% end %>
-                <% if user_signed_in? %>
-                  <%= link_to "Join", chatroom_path(chatroom), id: "chatJoinButton-#{chatroom.id}", class: "d-none"%>
-                <% else %>
-                  <%= link_to "Join", new_user_session_path, id: "chatJoinButton-#{chatroom.id}", class: "d-none"%>
-                <% end %>
-              </div>
-              <% end %>
-            </div>
-            <div class="icons-show">
-              <%= link_to "More Bookclubs", chatrooms_path %>
-              <%= link_to chatrooms_path do %>
-                <i data-feather="arrow-right"></i>
-              <% end %>
-            </div>
-          </div>
-          <div class="mapbox">
-            <div style="width: 100%; height: 200px;"
-                data-controller="mapbox"
-                data-mapbox-zoom-value="0"
-                data-mapbox-markers-value="<%= @markers.to_json %>"
-                data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <div>
-      <h2>Based on your tags, you might also like</h2>
-      <div class="results-container"></div>
+    <% else %>
+      <!--If user is not signed in-->
       <div class="cards-rec">
         <% @books_tag.where(availability: true).first(3).each do |b| %>
-          <%= link_to book_path(b) do %>
-            <div class="card-product-rec">
-              <%= image_tag b.picture %>
-              <div class="card-product-infos-rec">
-                <div>
-                  <% if b.title.length > 30 %>
-                    <%= b.title[0..30]... %></h2>
-                  <% else %>
-                    <%= b.title %></h2>
-                  <% end %>
-                  <p><%= b.author %></p>
-                  <p><%= b.year %></p>
-                </div>
-                <div class="card-price-km-rec">
-                  <h3>
-                    <% b.tags.each do |tag| %>
-                        <%= tag %>
+          <% if b.title != @book.title %>
+            <%= link_to book_path(b) do %>
+              <div class="card-product-rec">
+                <%= image_tag b.picture %>
+                <div class="card-product-infos-rec">
+                  <div>
+                    <% if b.title.length > 30 %>
+                      <%= b.title[0..30]... %></h2>
+                    <% else %>
+                      <%= b.title %></h2>
                     <% end %>
-                  </h3>
+                    <p><%= b.author %></p>
+                    <p><%= b.year %></p>
+                  </div>
+                  <div class="card-price-km-rec">
+                    <h3>
+                      <% b.tags.each do |tag| %>
+                          <%= tag %>
+                      <% end %>
+                    </h3>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
