@@ -44,14 +44,12 @@
 }
 
 .bg-container-show {
-  // border: 1px solid $dark-green;
   margin: 1rem 0;
 }
 .container-show {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
-  // align-items: center;
   gap: 1.5rem;
   width: 100%;
   margin: auto;
